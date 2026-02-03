@@ -24,11 +24,11 @@ export default function UploadCurriculo() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const url = "https://carlosgonzaga.app.n8n.cloud/webhook-test/upload-pdf";
+    const url = "https://elfoty.app.n8n.cloud/webhook-test/upload-pdf";
     const urlLocal = "http://localhost:5678/webhook-test/upload-pdf";
 
     try {
-      const res = await fetch(urlLocal, { method: "POST", body: formData });
+      const res = await fetch(url, { method: "POST", body: formData });
       const text = await res.text();
       console.log("raw response:", text);
 

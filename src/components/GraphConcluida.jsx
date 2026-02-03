@@ -110,7 +110,7 @@ export default function GraphConcluida() {
                 color: "#fff",
                 "text-valign": "center",
                 width: 200,
-                height: 50,
+                height: 30,
                 "font-size": "15px",
                 shape: "round-rectangle",
               },
