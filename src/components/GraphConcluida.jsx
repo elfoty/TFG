@@ -61,9 +61,9 @@ export default function GraphConcluida() {
           // --- INSERÇÃO: Verificação Dupla (Código OU Nome) ---
           const nomeMatrizNormalizado = normalizar(disc.nome);
           const concluida = 
-            codigosHistorico.has(disc.codigo.trim().toUpperCase()) ||            
-            nomesHistorico.has(nomeMatrizNormalizado);         
-          // -------------------------------------------------- 
+            codigosHistorico.has(disc.codigo.trim().toUpperCase()) || 
+            nomesHistorico.has(nomeMatrizNormalizado);
+          // --------------------------------------------------
 
           return {
             ...disc,
@@ -134,7 +134,7 @@ export default function GraphConcluida() {
                   const max = node.cy().data("maxRank") || 0.0001;
                   const ratio = rank / max;
 
-                  const r = Math.floor(255 * 2 * ratio);
+                  const r = Math.floor(255 * 1.5 * ratio);
                   const color = `rgb(${r}, 0, 0)`;
 
                   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/></svg>`;
@@ -181,12 +181,10 @@ export default function GraphConcluida() {
                 "font-size": "15px",
                 shape: "round-rectangle",
                 'text-max-width': 180,
-                "text-wrap": "wrap",
-
+                "text-overflow-wrap": "ellipsis",
                 "background-color": "#193cb8",
                 "line-color": "#FF851B",
                 opacity: 0.8,
-                "text-overflow-wrap": "ellipsis",
               },
             },
             {
