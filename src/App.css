@@ -1,17 +1,25 @@
+
+
 html,
 body,
 #root {
   height: 100%;
   margin: 0;
-  background-color: #4a3080;
+  background-color: #197fff ;
 }
 #cy {
-  width: 100vw; /* Largura total da janela */
-  height: 100vh; /* Altura total da janela */
-  position: fixed; /* Fixa na tela, ignorando o scroll da página */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1; /* Garante que fique na camada correta */
+  z-index: 0; /* Diminua o z-index do gráfico */
+}
+
+/* Garanta que a interface fique por cima */
+.interface-container {
+  position: relative;
+  z-index: 50; 
 }
 
 .tooltip {
