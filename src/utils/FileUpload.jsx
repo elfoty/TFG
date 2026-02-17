@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import Graph from "../components/Graph";
+import React, { useState, useRef } from "react"; import Graph from "../components/Graph";
 import GraphConcluida from "../components/GraphConcluida";
 import { useCurriculo } from "../context/useDataContext";
+import "../App.css";
 
 export default function UploadCurriculo() {
+  const fileInputRef = useRef(null);
   const [file, setFile] = useState(null);
   const [porPeriodo, setPorPeriodo] = useState({});
   const [loading, setLoading] = useState(false);
+  const [fileName, setFileName] = useState("Nenhum arquivo selecionado");
 
   const { curriculo, setCurriculo } = useCurriculo();
   function handleFileChange(e) {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setFileName(selectedFile.name); // Atualiza o texto do lado do botão
+    }
   }
 
   async function handleUpload() {
@@ -28,12 +34,15 @@ export default function UploadCurriculo() {
     const urlLocal = "http://localhost:5678/webhook-test/upload-pdf";
 
     try {
-      const res = await fetch(url, { method: "POST", body: formData });
-      const text = await res.text();
-      console.log("raw response:", text);
+      // const res = await fetch(url, { method: "POST", body: formData });
+      // const text = await res.text();
+      // console.log("raw response:", text);
 
-      const data = JSON.parse(text);
+      // const data = JSON.parse(text);
+      const resp = await fetch("/matriz2015.json");
+      if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
 
+      const data = await resp.json();
       setCurriculo(data);
 
       const grouped = data.reduce((acc, disc) => {
@@ -53,31 +62,34 @@ export default function UploadCurriculo() {
   }
 
   return (
-    <div className="p-10 max-w-6xl mx-auto">
+    <div className="z-50"> {/* Força ficar na frente */}
       {curriculo.length === 0 && (
-        <div>
-          <h1 className="text-3xl font-bold mb-6 z-9999">
-            Upload de Matriz Curricular 📘
-          </h1>
-          <div className="flex gap-4 items-center mb-8">
+        <div className="flex items-center flex-col relative">
+          <div className="flex gap-0 items-center">
             <input
-              className="p-2 bg-amber-300 z-40"
+              ref={fileInputRef} // Vincula o ref
+              className="hidden"
               type="file"
               accept="application/pdf"
               onChange={handleFileChange}
             />
-
+            <button
+              type="button"
+              onClick={() => fileInputRef.current.click()} // Força o clique
+              className="cursor-pointer rounded-s-lg bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg flex items-center gap-2 font-medium"
+            >
+              {file ? "Arquivo enviado" : "📄 Enviar PPC do curso"}
+            </button>
             <button
               onClick={handleUpload}
-              className="bg-blue-600 text-white px-4 py-2 rounded z-40"
+              className="bg-blue-800 rounded-r-lg cursor-pointer hover:bg-blue-900 text-white px-5 py-3 z-50"
             >
-              {loading ? "Processando..." : "Enviar PDF GRADE"}
+              {loading ? "⏳" : "📤"}
             </button>
           </div>
+          <div className="absolute top-12 left-0 right-0 text-white text-[10px] italic truncate max-w-[200px] text-center mx-auto pointer-events-none">{file?.name}</div>
         </div>
       )}
-      {/* {curriculo.length > 0 && <Graph curriculo={curriculo} />} */}
-      {curriculo.length > 0 && <GraphConcluida />}
     </div>
   );
 }

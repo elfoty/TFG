@@ -4,8 +4,16 @@ import "../App.css";
 import { useCurriculo } from "../context/useDataContext";
 import ModalSubjects from "./ModalSubjects";
 
+const normalizar = (txt) =>
+  txt?.toUpperCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^A-Z0-9]/g, "")
+    .trim();
+
 export default function GraphConcluida() {
-  const { history, curriculo } = useCurriculo();
+  // Adicionado 'filtros' para escutar a mudança do select global
+  const { history, curriculo, filtros } = useCurriculo();
 
   const [disciplinaSelecionada, setDisciplinaSelecionada] = useState(null);
   const [modalAberto, setModalAberto] = useState(false);
@@ -30,29 +38,100 @@ export default function GraphConcluida() {
   }
 
   const cyRef = useRef(null);
+  const cyInstance = useRef(null); // Ref para permitir que o efeito de filtros acesse o grafo
+
+  // NOVO: Efeito para reagir à mudança do Select de Filtros sem recarregar o grafo todo
+  useEffect(() => {
+    if (!cyInstance.current) return;
+    const cy = cyInstance.current;
+
+    // Reset de dados de rank para trocar de filtro
+    cy.nodes().removeData("rank");
+    cy.nodes().removeData("maxRank");
+
+    switch (filtros) {
+      case "gargalos":
+        const pr = cy.elements().pageRank({ dampingFactor: 0.8 });
+        let max = 0;
+        cy.nodes().forEach(n => {
+          const r = pr.rank(n);
+          n.data("rank", r);
+          if (r > max) max = r;
+        });
+        cy.data("maxRank", max);
+        break;
+      case "desbloqueio":
+        let maxDegree = 0;
+        cy.nodes().forEach(n => {
+          // n.outdegree() conta quantas setas saem do nó
+          const d = n.indegree();
+          n.data("rank", d);
+          if (d > maxDegree) maxDegree = d;
+        });
+        cy.data("maxRank", maxDegree);
+      case "pontes":
+        // O Cytoscape tem uma função nativa para Betweenness
+        const bc = cy.elements().betweennessCentrality();
+        let maxBC = 0;
+        cy.nodes().forEach(n => {
+          const val = bc.betweenness(n);
+          n.data("rank", val);
+          if (val > maxBC) maxBC = val;
+        });
+        cy.data("maxRank", maxBC);
+        break;
+      case "nucleo":
+        const cc = cy.elements().closenessCentrality();               
+        let maxCC = 0;
+        cy.nodes().forEach(n => {
+          const val = cc.closeness(n);
+          n.data("rank", val);
+          if (val > maxCC) maxCC = val;
+        });
+        cy.data("maxRank", maxCC);
+        break;
+
+      default:
+        // Caso padrão: bolinhas somem pois rank é 0/undefined
+        break;
+    }
+    cy.style().update();
+  }, [filtros]);
 
   useEffect(() => {
     let cy;
 
     async function inicializarGrafo() {
       try {
-        // const resp = await fetch("/matriz.json");
-        // if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
+        const elementosBrutos = curriculo[0].curriculo[0].matriz_curricular;
+        const elementos = elementosBrutos.filter(disc => disc.competencia !== "OPTATIVA");
 
-        // const elementos = await resp.json();
-        const elementos = curriculo;
-
-        const mapeiaHistorico = new Set(
-          history.map((d) => d.codigo.trim().toUpperCase())
+        // --- INSERÇÃO: Mapeamento de Códigos e Nomes do Histórico ---
+        const codigosHistorico = new Set(
+          (history?.codigos || []).map(c => c.trim().toUpperCase())
         );
+        const nomesHistorico = new Set(
+          (history?.nomes || []).map(n => normalizar(n))
+        );
+        // ----------------------------------------------------------
+
         console.log("curricuko", curriculo.disciplina);
 
-        const curriculoComStatus = elementos.map((disc) => ({
-          ...disc,
-          concluida: mapeiaHistorico.has(disc.codigo.trim().toUpperCase()),
-        }));
+        const curriculoComStatus = elementos.map((disc) => {
+          // --- INSERÇÃO: Verificação Dupla (Código OU Nome) ---
+          const nomeMatrizNormalizado = normalizar(disc.nome);
+          const concluida =
+            codigosHistorico.has(disc.codigo.trim().toUpperCase()) ||
+            nomesHistorico.has(nomeMatrizNormalizado);
+          // --------------------------------------------------
 
-        console.log("mapeia hisoricoo", mapeiaHistorico);
+          return {
+            ...disc,
+            concluida: concluida,
+          };
+        });
+
+        console.log("mapeia hisoricoo", Array.from(codigosHistorico));
 
         const nodes = curriculoComStatus.map((disc) => ({
           data: {
@@ -65,18 +144,14 @@ export default function GraphConcluida() {
           },
           classes: disc.concluida ? "concluida" : "",
         }));
-        /************** filter completed***************/
         const filterSubjectCompleted = curriculoComStatus.filter(
           (f) => f.concluida
         );
         console.log(
-          "MEU FILTRO DE MATERIAaaaaaaaaaaaaaaaaaaaaS ",
           filterSubjectCompleted
         );
         setSubjectCompleted(filterSubjectCompleted);
-        /************** filter completed***************/
 
-        /************** filter pendant***************/
         const filterSubjectPendant = curriculoComStatus.filter(
           (f) => f.concluida === false
         );
@@ -87,9 +162,9 @@ export default function GraphConcluida() {
           element.pre_requisitos.forEach((pr) => {
             edges.push({
               data: {
-                id: `${pr}->${element.codigo}`,
-                source: pr,
-                target: element.codigo,
+                id: `${element.codigo}->${pr}`,
+                source: element.codigo,
+                target: pr,
               },
             });
           });
@@ -98,7 +173,7 @@ export default function GraphConcluida() {
         cy = cytoscape({
           container: cyRef.current,
           elements: [...nodes, ...edges],
-          autoungrabify: false,
+          autoungrabify: true,
           userPanningEnabled: false,
           userZoomingEnabled: false,
           style: [
@@ -106,22 +181,79 @@ export default function GraphConcluida() {
               selector: "node",
               style: {
                 label: "data(id)",
-                "background-color": "black",
+                "background-color": "#193cb8",
                 color: "#fff",
                 "text-valign": "center",
                 width: 200,
-                height: 30,
+                height: 50,
                 "font-size": "15px",
                 shape: "round-rectangle",
+
+                // Lógica da Bolinha (reutilizada no highlighted)
+                "background-image": (node) => {
+                  const rank = node.data("rank") || 0;
+                  const max = node.cy().data("maxRank") || 0.0001;
+                  if (rank === 0) return "none";
+
+                  const ratio = rank / max;
+                  const g = Math.floor(255 * ratio) + 30;
+                  console.log(`Node ${node.data("id")} - Rank: ${rank}, Ratio: ${ratio}, R: ${g}`);
+                  const color = `rgb(0, ${g}, 0)`;
+
+                  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/></svg>`;
+                  return `data:image/svg+xml;base64,${btoa(svg)}`;
+                },
+                "background-width": "14px",
+                "background-height": "14px",
+                "background-position-x": "180px",
+                "background-position-y": "5px",
+                "background-clip": "node",
+                "z-index": 10
+              },
+            },
+            {
+              selector: "node.highlighted",
+              style: {
+                width: 210,
+                // Mantemos o label como o nome (isso você já faz no evento de mouseover)
+                "background-color": "#FF851B",
+                opacity: 0.8,
+                "z-index": 999, // Garante que o nó destacado fique na frente de tudo
+                "text-wrap": "wrap",
+                "text-max-width": "150px",
+                // IMPORTANTE: Mantemos a bolinha aqui também para ela não sumir no hover
+                "background-image": (node) => {
+                  const rank = node.data("rank") || 0;
+                  const max = node.cy().data("maxRank") || 0.0001;
+                  if (rank === 0) return "none";
+
+                  const ratio = rank / max;
+                  const g = Math.floor(255 * ratio);
+                  console.log(`Node ${node.data("id")} - Rank: ${rank}, Ratio: ${ratio}, R: ${g}`);
+                  const color = `rgb(0, ${g}, 0)`;
+
+                  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/></svg>`;
+                  return `data:image/svg+xml;base64,${btoa(svg)}`;
+                },
+                "background-width": "14px",
+                "background-height": "14px",
+                "background-position-x": "180px",
+                "font-size": "13px",
               },
             },
             {
               selector: "node.concluida",
               style: {
-                "background-color": "#2ECC40", // VERDE
+                "background-color": "#2ECC40",
                 color: "#000",
                 "font-weight": "bold",
               },
+            },
+            {
+              selector: "node[?isImportant]",
+              style: {
+                "background-image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjUiIGZpbGw9IiNGRjg1MUIiLz48L3N2Zz4=",
+              }
             },
             {
               selector: "edge",
@@ -133,26 +265,12 @@ export default function GraphConcluida() {
             { selector: "node.faded", style: { opacity: 0.3 } },
             { selector: "edge.faded", style: { opacity: 0.1 } },
             {
-              selector: "node.highlighted",
-              style: {
-                label: "data(id)",
-                "text-valign": "center",
-                width: 200,
-                height: 50,
-                "font-size": "15px",
-                shape: "round-rectangle",
-                "background-color": "#FF851B", // Cor de destaque
-                "line-color": "#FF851B",
-                opacity: 0.8,
-              },
-            },
-            {
               selector: "edge.highlighted",
               style: {
                 "curve-style": "bezier",
                 "target-arrow-shape": "triangle",
                 width: 4,
-                "background-color": "#FF851B", // Cor de destaque
+                "background-color": "#FF851B",
                 "line-color": "#FF855F",
                 "target-arrow-color": "#FF855F",
                 "z-index": "50",
@@ -161,17 +279,20 @@ export default function GraphConcluida() {
           ],
         });
 
+        cyInstance.current = cy; // Salva a instância para o efeito de filtros
+
+        // --- CORREÇÃO: Definindo a variável ANTES do layout para evitar ReferenceError ---
         const contagemDeLinhas = {};
 
         cy.layout({
           name: "preset",
           positions: (node) => {
-            const p = node.data("periodo");
+            const p = node.data("periodo") || 0;
             if (contagemDeLinhas[p] === undefined) contagemDeLinhas[p] = 0;
             const linha = contagemDeLinhas[p]++;
             return {
               x: p * 230,
-              y: linha * 40,
+              y: linha * 55,
             };
           },
         }).run();
@@ -179,12 +300,10 @@ export default function GraphConcluida() {
         cy.on("mouseover", "node", (evt) => {
           const node = evt.target;
 
-          // Mostrar o nome da matéria
-          node.data("oldLabel", node.data("id")); // guarda id antigo
-          node.data("label", node.data("nome")); // coloca nome
-          node.style("label", node.data("label")); // atualiza visual
+          node.data("oldLabel", node.data("id"));
+          node.data("label", node.data("nome"));
+          node.style("label", node.data("label"));
 
-          // efeito fade nos outros nós
           const connected = node
             .successors()
             .union(node.predecessors())
@@ -196,7 +315,6 @@ export default function GraphConcluida() {
         cy.on("mouseout", "node", (evt) => {
           const node = evt.target;
 
-          // volta ao id original
           node.data("label", node.data("oldLabel"));
           node.style("label", node.data("label"));
 
@@ -228,49 +346,59 @@ export default function GraphConcluida() {
     inicializarGrafo();
 
     return () => {
-      if (cy) cy.destroy();
+      if (cyInstance.current) cyInstance.current.destroy();
     };
   }, [curriculo, history]);
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="relative w-full h-full">
       <div id="cy" ref={cyRef} />
-      {console.log("hoverzim", disciplinaSelecionada)}
+
       {modalAberto && (
         <ModalSubjects
           disciplina={disciplinaSelecionada}
           onCloseModal={onCloseModal}
         />
       )}
-      <div className="bg-red-500 mt-80 z-90">
-        <button className="border" onClick={setShowFilterCompleted}>
-          concluido
-        </button>
-        {showSubjectCompleted && (
-          <div className="bg-yellow-300 flex flex-col gap-1 overflow-auto p-2">
-            {subjectCompleted.map((item) => (
-              <div key={item.codigo} className="text-sm border-b">
-                {item.codigo} - {item.nome}
-              </div>
-            ))}
-          </div>
-        )}
-        <div className="bg-green-500 z-90">
-          <button className="border" onClick={setShowFilterPendant}>
-            pendant
+
+      <div className="fixed bottom-4 left-4 z-[90] flex flex-col gap-2 max-w-[90vw]">
+
+        <div className="flex flex-col">
+          <button
+            className="bg-green-600 text-white px-4 py-2 rounded shadow-lg hover:bg-green-700 transition-colors text-sm font-bold"
+            onClick={setShowFilterCompleted}
+          >
+            {showSubjectCompleted ? "Ocultar Concluídas" : "Ver Concluídas"}
           </button>
-          {showSubjectPendant && (
-            <div>
-              {pendent.map((item) => (
-                <div>
-                  <span>
-                    {item.codigo} -- {item.nome}
-                  </span>
-                </div>
-              ))}
+          {showSubjectCompleted && (
+            <div className="bg-white/90 mt-1 max-h-48 overflow-y-auto p-2 rounded shadow-inner text-black text-xs">
+              {subjectCompleted.length > 0 ? (
+                subjectCompleted.map((item) => (
+                  <div key={item.codigo} className="border-b py-1">{item.codigo} - {item.nome}</div>
+                ))
+              ) : <p>Nenhuma concluída.</p>}
             </div>
           )}
         </div>
+
+        <div className="flex flex-col">
+          <button
+            className="bg-red-600 text-white px-4 py-2 rounded shadow-lg hover:bg-red-700 transition-colors text-sm font-bold"
+            onClick={setShowFilterPendant}
+          >
+            {showSubjectPendant ? "Ocultar Pendentes" : "Ver Pendentes"}
+          </button>
+          {showSubjectPendant && (
+            <div className="bg-white/90 mt-1 max-h-48 overflow-y-auto p-2 rounded shadow-inner text-black text-xs">
+              {pendent.length > 0 ? (
+                pendent.map((item) => (
+                  <div key={item.codigo} className="border-b py-1">{item.codigo} - {item.nome}</div>
+                ))
+              ) : <p>Tudo concluído!</p>}
+            </div>
+          )}
+        </div>
+
       </div>
     </div>
   );

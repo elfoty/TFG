@@ -6,7 +6,7 @@ const CurriculoContext = createContext();
 export function CurriculoProvider({ children }) {
   const [curriculo, setCurriculo] = useState([]);
   const [history, setHistory] = useState([]);
-
+  const [filtros, setFiltros] = useState([]);
   return (
     <CurriculoContext.Provider
       value={{
@@ -14,6 +14,8 @@ export function CurriculoProvider({ children }) {
         setCurriculo,
         history,
         setHistory,
+        filtros,
+        setFiltros,
       }}
     >
       {children}
