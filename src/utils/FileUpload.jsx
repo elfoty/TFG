@@ -78,7 +78,7 @@ export default function UploadCurriculo() {
               onClick={() => fileInputRef.current.click()} // Força o clique
               className="cursor-pointer rounded-s-lg bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg flex items-center gap-2 font-medium"
             >
-              {file ? "Arquivo enviado" : "📄 Enviar Matriz"}
+              {file ? "Arquivo enviado" : "📄 Enviar PPC do curso"}
             </button>
             <button
               onClick={handleUpload}

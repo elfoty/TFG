@@ -12,7 +12,8 @@ const normalizar = (txt) =>
     .trim();
 
 export default function GraphConcluida() {
-  const { history, curriculo } = useCurriculo();
+  // Adicionado 'filtros' para escutar a mudança do select global
+  const { history, curriculo, filtros } = useCurriculo();
 
   const [disciplinaSelecionada, setDisciplinaSelecionada] = useState(null);
   const [modalAberto, setModalAberto] = useState(false);
@@ -37,6 +38,65 @@ export default function GraphConcluida() {
   }
 
   const cyRef = useRef(null);
+  const cyInstance = useRef(null); // Ref para permitir que o efeito de filtros acesse o grafo
+
+  // NOVO: Efeito para reagir à mudança do Select de Filtros sem recarregar o grafo todo
+  useEffect(() => {
+    if (!cyInstance.current) return;
+    const cy = cyInstance.current;
+
+    // Reset de dados de rank para trocar de filtro
+    cy.nodes().removeData("rank");
+    cy.nodes().removeData("maxRank");
+
+    switch (filtros) {
+      case "gargalos":
+        const pr = cy.elements().pageRank({ dampingFactor: 0.8 });
+        let max = 0;
+        cy.nodes().forEach(n => {
+          const r = pr.rank(n);
+          n.data("rank", r);
+          if (r > max) max = r;
+        });
+        cy.data("maxRank", max);
+        break;
+      case "desbloqueio":
+        let maxDegree = 0;
+        cy.nodes().forEach(n => {
+          // n.outdegree() conta quantas setas saem do nó
+          const d = n.indegree();
+          n.data("rank", d);
+          if (d > maxDegree) maxDegree = d;
+        });
+        cy.data("maxRank", maxDegree);
+      case "pontes":
+        // O Cytoscape tem uma função nativa para Betweenness
+        const bc = cy.elements().betweennessCentrality();
+        let maxBC = 0;
+        cy.nodes().forEach(n => {
+          const val = bc.betweenness(n);
+          n.data("rank", val);
+          if (val > maxBC) maxBC = val;
+        });
+        cy.data("maxRank", maxBC);
+        break;
+      case "nucleo":
+        const cc = cy.elements().closenessCentrality();               
+        let maxCC = 0;
+        cy.nodes().forEach(n => {
+          const val = cc.closeness(n);
+          n.data("rank", val);
+          if (val > maxCC) maxCC = val;
+        });
+        cy.data("maxRank", maxCC);
+        break;
+
+      default:
+        // Caso padrão: bolinhas somem pois rank é 0/undefined
+        break;
+    }
+    cy.style().update();
+  }, [filtros]);
 
   useEffect(() => {
     let cy;
@@ -60,8 +120,8 @@ export default function GraphConcluida() {
         const curriculoComStatus = elementos.map((disc) => {
           // --- INSERÇÃO: Verificação Dupla (Código OU Nome) ---
           const nomeMatrizNormalizado = normalizar(disc.nome);
-          const concluida = 
-            codigosHistorico.has(disc.codigo.trim().toUpperCase()) || 
+          const concluida =
+            codigosHistorico.has(disc.codigo.trim().toUpperCase()) ||
             nomesHistorico.has(nomeMatrizNormalizado);
           // --------------------------------------------------
 
@@ -125,17 +185,20 @@ export default function GraphConcluida() {
                 color: "#fff",
                 "text-valign": "center",
                 width: 200,
-                height: 30,
+                height: 50,
                 "font-size": "15px",
                 shape: "round-rectangle",
 
+                // Lógica da Bolinha (reutilizada no highlighted)
                 "background-image": (node) => {
                   const rank = node.data("rank") || 0;
                   const max = node.cy().data("maxRank") || 0.0001;
-                  const ratio = rank / max;
+                  if (rank === 0) return "none";
 
-                  const r = Math.floor(255 * 1.5 * ratio);
-                  const color = `rgb(${r}, 0, 0)`;
+                  const ratio = rank / max;
+                  const g = Math.floor(255 * ratio) + 30;
+                  console.log(`Node ${node.data("id")} - Rank: ${rank}, Ratio: ${ratio}, R: ${g}`);
+                  const color = `rgb(0, ${g}, 0)`;
 
                   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/></svg>`;
                   return `data:image/svg+xml;base64,${btoa(svg)}`;
@@ -145,7 +208,37 @@ export default function GraphConcluida() {
                 "background-position-x": "180px",
                 "background-position-y": "5px",
                 "background-clip": "node",
-                "z-index": 10 
+                "z-index": 10
+              },
+            },
+            {
+              selector: "node.highlighted",
+              style: {
+                width: 210,
+                // Mantemos o label como o nome (isso você já faz no evento de mouseover)
+                "background-color": "#FF851B",
+                opacity: 0.8,
+                "z-index": 999, // Garante que o nó destacado fique na frente de tudo
+                "text-wrap": "wrap",
+                "text-max-width": "150px",
+                // IMPORTANTE: Mantemos a bolinha aqui também para ela não sumir no hover
+                "background-image": (node) => {
+                  const rank = node.data("rank") || 0;
+                  const max = node.cy().data("maxRank") || 0.0001;
+                  if (rank === 0) return "none";
+
+                  const ratio = rank / max;
+                  const g = Math.floor(255 * ratio);
+                  console.log(`Node ${node.data("id")} - Rank: ${rank}, Ratio: ${ratio}, R: ${g}`);
+                  const color = `rgb(0, ${g}, 0)`;
+
+                  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/></svg>`;
+                  return `data:image/svg+xml;base64,${btoa(svg)}`;
+                },
+                "background-width": "14px",
+                "background-height": "14px",
+                "background-position-x": "180px",
+                "font-size": "13px",
               },
             },
             {
@@ -159,7 +252,7 @@ export default function GraphConcluida() {
             {
               selector: "node[?isImportant]",
               style: {
-                "background-image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjUiIGZpbGw9IiNGRjg1MUIiLz48L3N2Zz4=", 
+                "background-image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PGNpcmNsZSBjeD0iNSIgY3k9IjUiIHI9IjUiIGZpbGw9IiNGRjg1MUIiLz48L3N2Zz4=",
               }
             },
             {
@@ -171,22 +264,6 @@ export default function GraphConcluida() {
             },
             { selector: "node.faded", style: { opacity: 0.3 } },
             { selector: "edge.faded", style: { opacity: 0.1 } },
-            {
-              selector: "node.highlighted",
-              style: {
-                label: "data(id)",
-                "text-valign": "center",
-                width: 200,
-                height: 30,
-                "font-size": "15px",
-                shape: "round-rectangle",
-                'text-max-width': 180,
-                "text-overflow-wrap": "ellipsis",
-                "background-color": "#193cb8",
-                "line-color": "#FF851B",
-                opacity: 0.8,
-              },
-            },
             {
               selector: "edge.highlighted",
               style: {
@@ -202,29 +279,20 @@ export default function GraphConcluida() {
           ],
         });
 
-        const pr = cy.elements().pageRank({ dampingFactor: 0.85 });
+        cyInstance.current = cy; // Salva a instância para o efeito de filtros
 
-        let maxRank = 0;
-        cy.nodes().forEach(node => {
-          const r = pr.rank(node);
-          node.data('rank', r);
-          if (r > maxRank) maxRank = r;
-        });
-
-        cy.data('maxRank', maxRank);
-        cy.style().update();
-
+        // --- CORREÇÃO: Definindo a variável ANTES do layout para evitar ReferenceError ---
         const contagemDeLinhas = {};
 
         cy.layout({
           name: "preset",
           positions: (node) => {
-            const p = node.data("periodo");
+            const p = node.data("periodo") || 0;
             if (contagemDeLinhas[p] === undefined) contagemDeLinhas[p] = 0;
             const linha = contagemDeLinhas[p]++;
             return {
               x: p * 230,
-              y: linha * 40,
+              y: linha * 55,
             };
           },
         }).run();
@@ -278,7 +346,7 @@ export default function GraphConcluida() {
     inicializarGrafo();
 
     return () => {
-      if (cy) cy.destroy();
+      if (cyInstance.current) cyInstance.current.destroy();
     };
   }, [curriculo, history]);
 

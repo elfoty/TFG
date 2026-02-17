@@ -1,1611 +1,1617 @@
-{
-  "curso": "Engenharia de Computação",
-  "matriz_curricular": [
-    {
-      "periodo": 1,
-      "codigo": "MAT00A",
-      "nome": "Cálculo A",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Funções. Limite e continuidade. Derivada. Integral.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 1,
-      "codigo": "ECOP11A",
-      "nome": "Técnicas de Programação",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 1,
-      "codigo": "ECO101A",
-      "nome": "Introdução à Engenharia de Computação",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "O curso de Engenharia de Computação na UNIFEI. Introdução à Engenharia de Computação. A Engenharia e a sociedade. Educação das relações étnico-raciais e ensino de história e cultura afro-brasileira, africana e indígena. Introdução ao sistema operacional Linux. Representação gráfica para projetos.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 1,
-      "codigo": "ECOM00",
-      "nome": "Lógica para Engenharia",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 1,
-      "codigo": "ECOM10",
-      "nome": "Laboratório de Lógica para Engenharia",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOM00"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 1,
-      "codigo": "ELTA00A",
-      "nome": "Circuitos e Eletrônica",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 1,
-      "codigo": "ELTA10A",
-      "nome": "Laboratório de Circuitos e Eletrônica",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTA00A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 1,
-      "codigo": "LET014",
-      "nome": "Comunicação Oral para Fins Acadêmicos",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "MAT00D",
-      "nome": "Equações Diferenciais A",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "MAT00A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Equações diferenciais de primeira ordem. Aplicações. Equações diferenciais lineares de ordem n. Equações diferenciais de ordem superior. Transformada de Laplace. Sistemas de Equações Diferenciais. Métodos Numéricos para Equações Diferenciais.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "FIS210",
-      "nome": "Física I",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "MAT00A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Mecânica Clássica (Cinemática, Dinâmica, Leis de Newton, Conservação de energia e Conservação de momento linear).",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "FIS212",
-      "nome": "Física Experimental I",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "FIS210"
-      ],
-      "ementa": "Realizar experimentos onde possa ser verificados os conceitos de Cinemática, Dinâmica, Conservação de Energia e Momento.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "ECOP04",
-      "nome": "Programação Embarcada",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOP11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Conceitos gerais de computação embarcada. Programação de sistemas embarcados utilizando linguagem C. Tipos de dados e operações com bits. Diretivas de compilação e pré-compilação. Utilização de periféricos: entradas e saídas digitais, DAC, PWM, Serial RS232, timers e watchdog. Multiplexação de entradas e saídas (displays e teclado). Interrupções. Organização e arquitetura de programas para sistemas embarcados. Limitações de sistemas embarcados.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "ECOP14",
-      "nome": "Laboratório de Programação Embarcada",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOP04"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "ECOP02A",
-      "nome": "Estruturas de Dados",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOP11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Lista estática. Lista estática encadeada. Ponteiros. Alocação dinâmica. Lista dinâmica simplesmente encadeada. Lista dinâmica duplamente encadeada. Listas circulares. Pilhas. Filas. Árvores binárias de busca. Árvores balanceadas AVL. Árvores múltiplas. Árvores B. Tabelas de dispersão. Tratamento de colisões.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "ECOM01A",
-      "nome": "Matemática Discreta",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM00"
-      ],
-      "co_requisitos": [],
-      "ementa": "Relações e funções. Noções de Lógica e Provas. Contagem e Probabilidade Discreta. Recorrências. Teoria dos Grafos.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "ECOM11A",
-      "nome": "Programação Funcional",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Introdução à Programação Funcional (PF). Conceitos Fundamentais da PF. Implementação de Programas em PF.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 2,
-      "codigo": "LET013",
-      "nome": "Escrita Acadêmico-Científica",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Comunicação oral e escrita. Tipos de discurso. A argumentação no discurso acadêmico-científico. Normalização.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "MAT252",
-      "nome": "Álgebra Linear e Aplicações",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "MAT00D"
-      ],
-      "co_requisitos": [],
-      "ementa": "Matrizes e sistemas de equações lineares. Determinantes. Espaços vetoriais. Transformações lineares. Autovalores e autovetores.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "FIS320",
-      "nome": "Física IIB",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "FIS210"
-      ],
-      "co_requisitos": [],
-      "ementa": "Fenômenos de transporte: Fluidos, Temperatura e Calor. Leis da Termodinâmica.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "FIS322",
-      "nome": "Física Experimental IIB",
-      "carga_horaria": 16,
-      "pre_requisitos": [
-        "FIS212"
-      ],
-      "co_requisitos": [
-        "FIS320"
-      ],
-      "ementa": "Realizar experimentos onde possa ser verificados os conceitos de fluidos e termodinâmica.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "ELTA01A",
-      "nome": "Eletrônica Analógica I",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ELTA00A",
-        "ELTA10A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Dispositivos semicondutores. Diodos. Circuitos retificadores. Filtros. Estabilizadores de tensão. Transistores bipolares (BJT): polarização e amplificadores de pequeno sinal.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "ELTA11A",
-      "nome": "Laboratório de Eletrônica Analógica I",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTA01A"
-      ],
-      "ementa": "Implementar uma fonte linear. Implementar um amplificador de pequeno sinal. Analisar circuito/sinais com simuladores. Testar o funcionamento de circuitos. Avaliar projetos de amplificadores.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "ELTD01A",
-      "nome": "Eletrônica Digital I",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM00",
-        "ECOM10"
-      ],
-      "co_requisitos": [],
-      "ementa": "Sistemas de numeração e códigos. Álgebra de Boole. Portas lógicas. Mapas de Karnaugh. Circuitos combinacionais básicos.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "ELTD11A",
-      "nome": "Laboratório de Eletrônica Digital I",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTD01A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "ECOM02A",
-      "nome": "Teoria dos Grafos",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM01A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Conceitos fundamentais de grafos. Grafos direcionados. Percursos e caminhos. Árvores. Emparelhamento. Conectividade. Coloração. Aplicações.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 3,
-      "codigo": "ECOP13A",
-      "nome": "Programação Orientada a Objetos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOP11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Fundamentos da Programação Orientada a Objetos (POO). Classes. Objetos. Encapsulamento. Herança. Polimorfismo. Interface. Exceções. Coleções. Aplicações.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ELTA02A",
-      "nome": "Eletrônica Analógica II",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTA01A",
-        "ELTA11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Modelos de transistor de pequeno sinal. Análise e projeto de amplificadores: FETs. Amplificadores de potência. Amplificadores diferenciais e operacionais. Realimentação.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ELTA12A",
-      "nome": "Laboratório de Eletrônica Analógica 2",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTA02A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "EMAG01",
-      "nome": "Eletromagnetismo",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "FIS210",
-        "FIS212"
-      ],
-      "co_requisitos": [],
-      "ementa": "Análise vetorial. Eletrostática. Potencial elétrico. Capacitância. Dielétricos. Campos magnéticos. Lei de Ampère. Indução eletromagnética.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "FIS412",
-      "nome": "Física Experimental III",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "EMAG01"
-      ],
-      "ementa": "Realizar experimentos onde possa ser verificados fenômenos elétricos e magnéticos.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ELTD12A",
-      "nome": "Eletrônica Digital II",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTD01A",
-        "ELTD11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Flip-Flops. Máquinas de estados. Contadores. Registradores de deslocamento. Dispositivos lógicos programáveis. Linguagens de descrição de hardware.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ECOM03A",
-      "nome": "Análise de Algoritmos",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOP02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Definição de algoritmo. Análise de tempo de execução (notações assintóticas). Projeto de algoritmos (divisão e conquista, programação dinâmica, algoritmos gulosos).",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ECOS01A",
-      "nome": "Sistemas Operacionais",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOP02A",
-        "ECOP04",
-        "ECOP14"
-      ],
-      "co_requisitos": [],
-      "ementa": "Conceitos fundamentais. Gerência de processos. Escalonamento. Gerência de memória. Sistemas de arquivos. Entrada/saída. Deadlocks.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ECOS11A",
-      "nome": "Laboratório de Sistemas Operacionais",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOS01A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ECOT02A",
-      "nome": "Projeto de Software",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOP13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Modelos de ciclo de vida de software. Levantamento e especificação de requisitos. Modelagem estruturada de software. Modelagem orientada a objetos. Padrões de projeto.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ECOT12A",
-      "nome": "Laboratório de Projeto de Software",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOT02A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 4,
-      "codigo": "ECOM05A",
-      "nome": "Linguagens Formais",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Introdução à Linguagens Formais. Conceitos de Linguagens. Reconhecedores. Linguagens Regulares e expressões regulares. Autômatos Finitos. Linguagens Livre de Contexto. Máquinas de Turing.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECOT03A",
-      "nome": "Banco de Dados",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOT02A",
-        "ECOT12A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Introdução a sistemas de bancos de dados. Modelos de dados. Modelagem de dados: conceitual, lógico e físico. Modelo relacional. Álgebra relacional. Linguagem de consulta estruturada (SQL).",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECOT13A",
-      "nome": "Laboratório de Banco de Dados",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOT03A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECO140A",
-      "nome": "Metodologia Científica e Análise de Dados",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOP02A",
-        "ECOT02A",
-        "ECOT12A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Fundamentos da metodologia científica. Análise de dados. Estatística descritiva. Introdução à probabilidade. Teste de hipótese.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECO141A",
-      "nome": "Laboratório de Metodologia Científica e Análise de Dados",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECO140A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECAC09",
-      "nome": "Sinais e Sistemas e Introdução a Controle",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "MAT00D"
-      ],
-      "co_requisitos": [],
-      "ementa": "Classificação de sinais e sistemas. Transformada de Fourier. Transformada de Laplace. Funções de transferência. Resposta transitória e estacionária. Introdução a sistemas de controle.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECAC19",
-      "nome": "Laboratório de Sinais e Sistemas e Introdução a Controle",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECAC09"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "TELC03A",
-      "nome": "Redes de Computadores",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Camada de aplicação. Camada de transporte. Camada de rede. Camada de enlace. Segurança e redes móveis.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "TELC13A",
-      "nome": "Laboratório de Redes de Computadores",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "TELC03A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECOS03",
-      "nome": "Sistemas Operacionais Embarcados",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOS01A",
-        "ECOS11A",
-        "ECOP04"
-      ],
-      "co_requisitos": [],
-      "ementa": "Sistemas operacionais de tempo real. Drivers. Estruturas de sincronia e de proteção de acesso à recursos de hardware. Sistema operacional de propósito geral para sistemas embarcados. Ferramentas para geração de imagem de sistemas operacionais.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECOS13",
-      "nome": "Laboratório de Sistemas Operacionais Embarcados",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOS03"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECOM06A",
-      "nome": "Compiladores",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM05A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Conceitos e fundamentos de compiladores. Análise léxica. Análise sintática. Análise semântica. Geração de código intermediário. Otimização de código. Geração de código alvo.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 5,
-      "codigo": "ECOM07A",
-      "nome": "Métodos Numéricos e Computacionais",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOP02A",
-        "MAT00A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Teoria de erros. Zeros de funções. Sistemas de equações lineares. Interpolação. Integração numérica. Aplicações.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "ELTD03A",
-      "nome": "Microcontroladores e Microprocessadores",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTD01A",
-        "ELTD11A",
-        "ECOP04",
-        "ECOP14"
-      ],
-      "co_requisitos": [],
-      "ementa": "Arquiteturas típicas de microprocessadores e microcontroladores. Estruturas de barramentos e memórias. Periféricos e interfaces: I/O e LCD 16x2; Serial; Timer; Contadores; ADC; PWM; DMA; Conjunto de instruções. Pilha (stack). Subrotinas. Interrupções. Linguagem de programação de máquina (assembly).",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "ELTD13A",
-      "nome": "Laboratório de Microcontroladores e Microprocessadores",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTD03A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "TELC01A",
-      "nome": "Telecomunicações I",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "MAT00D"
-      ],
-      "co_requisitos": [],
-      "ementa": "Séries e transformada de Fourier contínuo. Codificação e modulação analógica e digital. Multiplexadores. Sistemas de telecomunicações.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "TELC11A",
-      "nome": "Laboratório de Telecomunicações I",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "TELC01A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "ECOT01A",
-      "nome": "Engenharia de Software",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOP13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ciclos de desenvolvimento de software. Especificação e análise de requisitos. Projeto de software. Gerenciamento de projeto. Ciclos de Entrega. Ciclo de vida de software. Manutenção de software.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "ECOT11A",
-      "nome": "Laboratório de Engenharia de Software",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOT01A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "ECOS02A",
-      "nome": "Sistemas Distribuídos",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOS01A",
-        "ECOS11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Arquitetura de sistemas distribuídos. Comunicação. Sincronização. Tolerância a falhas. Segurança.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "ECOS12A",
-      "nome": "Laboratório de Sistemas Distribuídos",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECOS02A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "ECOM08A",
-      "nome": "Inteligência Artificial",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Agentes inteligentes. Resolução de problemas por busca. Busca informada. Jogos. Lógica. Planejamento.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 6,
-      "codigo": "PBLE00",
-      "nome": "Fundamentos de Projetos Mecânicos",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Entropia, Energia e as Leis da Termodinâmica. Condução, Convecção e Radiação. Dissipação de calor em sistemas eletrônicos. Introdução a mecânica dos sólidos. Análise de resistência mecânica de embalagens. Projeto.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "ELTD05A",
-      "nome": "Projeto de Sistemas Digitais",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTD12A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Metodologia de projeto. Linguagem de descrição de hardware (VHDL). Simulação e síntese. Arquiteturas de hardware.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "ELTD15A",
-      "nome": "Laboratório de Projeto de Sistemas Digitais",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTD05A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "ECOS04",
-      "nome": "Simulação e Avaliação de Desempenho",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOS02A",
-        "ECOS12A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Introdução à simulação de sistemas. Modelos de simulação. Metodologias de simulação. Análise de desempenho de sistemas de computação.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "ELT052A",
-      "nome": "Química e Ciência dos materiais",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Estrutura atômica e Tabela Periódica. Ligações químicas e forças intermoleculares. Termodinâmica química. Cinética química. Equilíbrio químico. Materiais poliméricos. Materiais cerâmicos. Materiais metálicos.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "QUI212",
-      "nome": "Química Geral Experimental",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELT052A"
-      ],
-      "ementa": "Reações químicas. Processos de separação. Equilíbrio químico. Termoquímica. Eletroquímica.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "ECOM09A",
-      "nome": "Inteligência Artificial Aplicada",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOM08A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Otimizações evolutivas. Aprendizado de máquina supervisionado classificatório e de regressão. Aprendizado não supervisionado. Redes neurais e Deep Learning.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "TELC02A",
-      "nome": "Telecomunicações II",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "TELC01A",
-        "TELC11A",
-        "ELTA02A",
-        "ELTA12A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Codificação. Modulação digital. Propagação de ondas eletromagnéticas. Sistemas de comunicação de dados.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "TELC12A",
-      "nome": "Laboratório de Telecomunicações II",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "TELC02A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "PBLC01",
-      "nome": "Desenvolvimento de Projeto de Software",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOT03A",
-        "ECOT13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "JAVASCRIPT (Básico e Intermediário), Controle de versão com GIT. TYPESCRIPT e UML. Docker. Mapeamento Objeto Relacional. Desenvolvimento de API-Express. Projeto de Interface. REACT.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 7,
-      "codigo": "IEPG20",
-      "nome": "Introdução à Economia",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 8,
-      "codigo": "ECAC14A",
-      "nome": "Processamento Digital de Sinais",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECAC09",
-        "ECAC19"
-      ],
-      "co_requisitos": [],
-      "ementa": "Fundamentos de sistemas amostrados lineares. Implementação de sistemas discretos. Filtros digitais (FIR e IIR). Transformada discreta de Fourier. Transformada rápida de Fourier (FFT).",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 8,
-      "codigo": "ELTD04A",
-      "nome": "Microprocessador Avançado",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTD03A",
-        "ELTD13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Arquitetura de computadores. Pipelines. Hierarquia de memória. Computação paralela. Multiprocessamento.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 8,
-      "codigo": "ELTD14A",
-      "nome": "Laboratório de Microprocessador Avançado",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTD04A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 8,
-      "codigo": "ECO103",
-      "nome": "Informática e Sociedade",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ECOT01A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Relação entre Tecnologia, Ética e Sociedade. Impacto social e ambiental da Tecnologia da Informação. Legislação e regulamentação da área de Computação.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 8,
-      "codigo": "EMT070",
-      "nome": "Materiais e Ambiente",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Avaliação do Ciclo de Vida. Resíduos Urbanos e Industriais. Co-processamento. Reciclagem. Recursos Naturais. Legislação Ambiental.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 8,
-      "codigo": "IEPG22",
-      "nome": "Administração Aplicada",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Apresentação do processo evolutivo das Teorias da Administração. Fundamentos, áreas e conceitos utilizados de modo prático, por todos os profissionais, que tenham como atividade, a gestão de recursos físicos e humanos.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 8,
-      "codigo": "IEPG10",
-      "nome": "Engenharia Econômica",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 9,
-      "codigo": "TCC01-64H-ECO",
-      "nome": "Trabalho de Conclusão de Curso I",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 10,
-      "codigo": "TCC02-96H-ECO",
-      "nome": "Trabalho de Conclusão de Curso II",
-      "carga_horaria": 96,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 10,
-      "codigo": "ESTSUPERV-007-360",
-      "nome": "Estágio Supervisionado",
-      "carga_horaria": 360,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OBRIGATORIA (tipo não informado na fonte)"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX01",
-      "nome": "Arquitetura e Organização de Computadores",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ELTD03A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX02",
-      "nome": "Comunicação em Sistemas Embarcados",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOS03",
-        "TELC02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX03",
-      "nome": "Segurança da Informação",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOS01A",
-        "TELC03A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX04",
-      "nome": "Computação de Alto Desempenho",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOP02A",
-        "ECOS01A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX05",
-      "nome": "Desenvolvimento de Sistemas Web",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOP13A",
-        "ECOT03A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX06",
-      "nome": "Paradigmas de Programação",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOP13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX07",
-      "nome": "Programação Aplicada",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOP13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX08",
-      "nome": "Infraestrutura de Redes Locais",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "TELC03A",
-        "TELC13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX11",
-      "nome": "Tópicos Especiais em Engenharia de Software",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOT01A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX12",
-      "nome": "Tópicos Especiais em Sistemas Distribuídos",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOS02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX13",
-      "nome": "Tópicos Especiais em Inteligência Artificial",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOM08A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX14",
-      "nome": "Tópicos Especiais em Programação I",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOP02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX15",
-      "nome": "Tópicos Especiais em Programação II",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOP02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX21",
-      "nome": "Maratona de Programação I",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOP11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX22",
-      "nome": "Maratona de Programação II",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "ECOX21"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX31",
-      "nome": "Estudos Avançados I",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Tópicos de Pesquisa relacionados às disciplinas dos programas de Pós-graduação da UNIFEI.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX32",
-      "nome": "Estudos Avançados II",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Tópicos de Pesquisa relacionados às disciplinas dos programas de Pós-graduação da UNIFEI.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECOX33",
-      "nome": "Estudos Avançados III",
-      "carga_horaria": 64,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Tópicos de Pesquisa relacionados às disciplinas dos programas de Pós-graduação da UNIFEI.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "IEPG01",
-      "nome": "Empreendedorismo e Inovação",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Introdução. Teoria empreendedora (Visões & Relações). Características empreendedoras. Criatividade. Inovação e detecção de oportunidades.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ADM01E",
-      "nome": "Empreendedorismo e Novos Negócios",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ADM04E",
-      "nome": "Empreendedorismo e Sustentabilidade",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "LET007",
-      "nome": "Libras - Língua Brasileira de Sinais",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "IESTI01",
-      "nome": "TINYML-Aprendizado de Máquina Aplicado para Dispositivos IoT Embarcados",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTE02",
-      "nome": "Engenharia de Usabilidade",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECO101A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "PBLE01",
-      "nome": "Co-design de Produtos Eletrônicos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ELTA01A",
-        "ELTA11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTA03A",
-      "nome": "Condicionamento de Sinais",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTA01A",
-        "ELTA10A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTA13A",
-      "nome": "Laboratório de Condicionamento de Sinais",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTA03A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAT03",
-      "nome": "Instrumentação Eletrônica",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTA03A",
-        "ELTA13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAT13",
-      "nome": "Laboratório de Instrumentação Eletrônica",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECAT03"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "PBLE02",
-      "nome": "Board Bring-up e Validação de Protótipos Eletrônicos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "PBLE01",
-        "ECOP04"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "EMAG02",
-      "nome": "Eletromagnetismo Aplicado",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "EMAG01",
-        "FIS412"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "PBLE03",
-      "nome": "Projeto de Instrumentos e Transmissores",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ELTA00A",
-        "ELTA10A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "PBLE04",
-      "nome": "Projeto de Modulador Configurável em FPGA",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "TELC01A",
-        "TELC11A",
-        "ELTD05A",
-        "ELTD15A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTP01A",
-      "nome": "Máquinas e Acionamentos Eletrônicos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ELTA01A",
-        "ELTA10A",
-        "EMAG01",
-        "FIS412"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTP11A",
-      "nome": "Laboratório de Máquinas e Acionamentos Eletrônicos",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTP01A"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTA05",
-      "nome": "Compatibilidade Eletromagnética",
-      "carga_horaria": 48,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTE03",
-      "nome": "Projeto Robusto de Produtos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "PBLE01",
-        "ELTE02"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "PBLE05",
-      "nome": "Organização Industrial e Manufatura de Produtos Eletrônicos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "PBLE01",
-        "IEPG10"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTP02",
-      "nome": "Conversores Eletrônicos de Potência",
-      "carga_horaria": 32,
-      "pre_requisitos": [
-        "ELTP01A",
-        "ELTP11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ELTP12",
-      "nome": "Laboratório de Conversores Eletrônicos de Potência",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ELTP02"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAE01",
-      "nome": "Circuitos de Corrente Contínua",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAE11",
-      "nome": "Laboratório de Circuitos de Corrente Contínua",
-      "carga_horaria": 32,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECAE01"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAE02",
-      "nome": "Circuitos Alternados e Polifásicos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECAE01",
-        "ECAE11"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAE12",
-      "nome": "Laboratório de Circuitos Alternados e Polifásicos",
-      "carga_horaria": 16,
-      "pre_requisitos": [],
-      "co_requisitos": [
-        "ECAE02"
-      ],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAC02A",
-      "nome": "Controle Clássico",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECAC09",
-        "MAT252"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ECAC03A",
-      "nome": "Controle Moderno",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECAC02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "ADM03E",
-      "nome": "Empreendedorismo Tecnológico",
-      "carga_horaria": 48,
-      "pre_requisitos": [
-        "IEPG01"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "CDES05",
-      "nome": "Programação Lógica e Funcional",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOM01A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "CDES13",
-      "nome": "Desenvolvimento de Jogos",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOP13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "CMAC04",
-      "nome": "Modelagem Computacional",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "MAT00A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "CMCO05",
-      "nome": "Introdução à Visão Computacional",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOP13A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "SDES06",
-      "nome": "Gerência de Projetos de Software",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOT01A",
-        "ECOT11A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "XAHC02",
-      "nome": "Interação Humano-Computador",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOX05"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "XDES03",
-      "nome": "Programação Web",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "ECOP13A",
-        "ECOT03A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    },
-    {
-      "periodo": 0,
-      "codigo": "XMAC02",
-      "nome": "Métodos Matemáticos para Análise de Dados",
-      "carga_horaria": 64,
-      "pre_requisitos": [
-        "MAT00A",
-        "ECOM01A",
-        "ECOP02A"
-      ],
-      "co_requisitos": [],
-      "ementa": "Ementa não fornecida explicitamente na fonte.",
-      "competencia": "OPTATIVA"
-    }
-  ]
-}
+[
+  {
+    "curriculo": [
+      {
+        "curso": "Engenharia de Computação",
+        "matriz_curricular": [
+          {
+            "periodo": 1,
+            "codigo": "MAT00A",
+            "nome": "Cálculo A",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Funções. Limite e continuidade. Derivada. Integral.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 1,
+            "codigo": "ECOP11A",
+            "nome": "Técnicas de Programação",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 1,
+            "codigo": "ECO101A",
+            "nome": "Introdução à Engenharia de Computação",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "O curso de Engenharia de Computação na UNIFEI. Introdução à Engenharia de Computação. A Engenharia e a sociedade. Educação das relações étnico-raciais e ensino de história e cultura afro-brasileira, africana e indígena. Introdução ao sistema operacional Linux. Representação gráfica para projetos.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 1,
+            "codigo": "ECOM00",
+            "nome": "Lógica para Engenharia",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 1,
+            "codigo": "ECOM10",
+            "nome": "Laboratório de Lógica para Engenharia",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOM00"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 1,
+            "codigo": "ELTA00A",
+            "nome": "Circuitos e Eletrônica",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 1,
+            "codigo": "ELTA10A",
+            "nome": "Laboratório de Circuitos e Eletrônica",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTA00A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 1,
+            "codigo": "LET014",
+            "nome": "Comunicação Oral para Fins Acadêmicos",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "MAT00D",
+            "nome": "Equações Diferenciais A",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "MAT00A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Equações diferenciais de primeira ordem. Aplicações. Equações diferenciais lineares de ordem n. Equações diferenciais de ordem superior. Transformada de Laplace. Sistemas de Equações Diferenciais. Métodos Numéricos para Equações Diferenciais.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "FIS210",
+            "nome": "Física I",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "MAT00A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Mecânica Clássica (Cinemática, Dinâmica, Leis de Newton, Conservação de energia e Conservação de momento linear).",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "FIS212",
+            "nome": "Física Experimental I",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "FIS210"
+            ],
+            "ementa": "Realizar experimentos onde possa ser verificados os conceitos de Cinemática, Dinâmica, Conservação de Energia e Momento.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "ECOP04",
+            "nome": "Programação Embarcada",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOP11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Conceitos gerais de computação embarcada. Programação de sistemas embarcados utilizando linguagem C. Tipos de dados e operações com bits. Diretivas de compilação e pré-compilação. Utilização de periféricos: entradas e saídas digitais, DAC, PWM, Serial RS232, timers e watchdog. Multiplexação de entradas e saídas (displays e teclado). Interrupções. Organização e arquitetura de programas para sistemas embarcados. Limitações de sistemas embarcados.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "ECOP14",
+            "nome": "Laboratório de Programação Embarcada",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOP04"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "ECOP02A",
+            "nome": "Estruturas de Dados",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOP11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Lista estática. Lista estática encadeada. Ponteiros. Alocação dinâmica. Lista dinâmica simplesmente encadeada. Lista dinâmica duplamente encadeada. Listas circulares. Pilhas. Filas. Árvores binárias de busca. Árvores balanceadas AVL. Árvores múltiplas. Árvores B. Tabelas de dispersão. Tratamento de colisões.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "ECOM01A",
+            "nome": "Matemática Discreta",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM00"
+            ],
+            "co_requisitos": [],
+            "ementa": "Relações e funções. Noções de Lógica e Provas. Contagem e Probabilidade Discreta. Recorrências. Teoria dos Grafos.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "ECOM11A",
+            "nome": "Programação Funcional",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Introdução à Programação Funcional (PF). Conceitos Fundamentais da PF. Implementação de Programas em PF.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 2,
+            "codigo": "LET013",
+            "nome": "Escrita Acadêmico-Científica",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Comunicação oral e escrita. Tipos de discurso. A argumentação no discurso acadêmico-científico. Normalização.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "MAT252",
+            "nome": "Álgebra Linear e Aplicações",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "MAT00D"
+            ],
+            "co_requisitos": [],
+            "ementa": "Matrizes e sistemas de equações lineares. Determinantes. Espaços vetoriais. Transformações lineares. Autovalores e autovetores.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "FIS320",
+            "nome": "Física IIB",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "FIS210"
+            ],
+            "co_requisitos": [],
+            "ementa": "Fenômenos de transporte: Fluidos, Temperatura e Calor. Leis da Termodinâmica.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "FIS322",
+            "nome": "Física Experimental IIB",
+            "carga_horaria": 16,
+            "pre_requisitos": [
+              "FIS212"
+            ],
+            "co_requisitos": [
+              "FIS320"
+            ],
+            "ementa": "Realizar experimentos onde possa ser verificados os conceitos de fluidos e termodinâmica.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "ELTA01A",
+            "nome": "Eletrônica Analógica I",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ELTA00A",
+              "ELTA10A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Dispositivos semicondutores. Diodos. Circuitos retificadores. Filtros. Estabilizadores de tensão. Transistores bipolares (BJT): polarização e amplificadores de pequeno sinal.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "ELTA11A",
+            "nome": "Laboratório de Eletrônica Analógica I",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTA01A"
+            ],
+            "ementa": "Implementar uma fonte linear. Implementar um amplificador de pequeno sinal. Analisar circuito/sinais com simuladores. Testar o funcionamento de circuitos. Avaliar projetos de amplificadores.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "ELTD01A",
+            "nome": "Eletrônica Digital I",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM00",
+              "ECOM10"
+            ],
+            "co_requisitos": [],
+            "ementa": "Sistemas de numeração e códigos. Álgebra de Boole. Portas lógicas. Mapas de Karnaugh. Circuitos combinacionais básicos.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "ELTD11A",
+            "nome": "Laboratório de Eletrônica Digital I",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTD01A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "ECOM02A",
+            "nome": "Teoria dos Grafos",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM01A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Conceitos fundamentais de grafos. Grafos direcionados. Percursos e caminhos. Árvores. Emparelhamento. Conectividade. Coloração. Aplicações.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 3,
+            "codigo": "ECOP13A",
+            "nome": "Programação Orientada a Objetos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOP11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Fundamentos da Programação Orientada a Objetos (POO). Classes. Objetos. Encapsulamento. Herança. Polimorfismo. Interface. Exceções. Coleções. Aplicações.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ELTA02A",
+            "nome": "Eletrônica Analógica II",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTA01A",
+              "ELTA11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Modelos de transistor de pequeno sinal. Análise e projeto de amplificadores: FETs. Amplificadores de potência. Amplificadores diferenciais e operacionais. Realimentação.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ELTA12A",
+            "nome": "Laboratório de Eletrônica Analógica 2",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTA02A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "EMAG01",
+            "nome": "Eletromagnetismo",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "FIS210",
+              "FIS212"
+            ],
+            "co_requisitos": [],
+            "ementa": "Análise vetorial. Eletrostática. Potencial elétrico. Capacitância. Dielétricos. Campos magnéticos. Lei de Ampère. Indução eletromagnética.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "FIS412",
+            "nome": "Física Experimental III",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "EMAG01"
+            ],
+            "ementa": "Realizar experimentos onde possa ser verificados fenômenos elétricos e magnéticos.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ELTD12A",
+            "nome": "Eletrônica Digital II",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTD01A",
+              "ELTD11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Flip-Flops. Máquinas de estados. Contadores. Registradores de deslocamento. Dispositivos lógicos programáveis. Linguagens de descrição de hardware.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ECOM03A",
+            "nome": "Análise de Algoritmos",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOP02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Definição de algoritmo. Análise de tempo de execução (notações assintóticas). Projeto de algoritmos (divisão e conquista, programação dinâmica, algoritmos gulosos).",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ECOS01A",
+            "nome": "Sistemas Operacionais",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOP02A",
+              "ECOP04",
+              "ECOP14"
+            ],
+            "co_requisitos": [],
+            "ementa": "Conceitos fundamentais. Gerência de processos. Escalonamento. Gerência de memória. Sistemas de arquivos. Entrada/saída. Deadlocks.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ECOS11A",
+            "nome": "Laboratório de Sistemas Operacionais",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOS01A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ECOT02A",
+            "nome": "Projeto de Software",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOP13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Modelos de ciclo de vida de software. Levantamento e especificação de requisitos. Modelagem estruturada de software. Modelagem orientada a objetos. Padrões de projeto.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ECOT12A",
+            "nome": "Laboratório de Projeto de Software",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOT02A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 4,
+            "codigo": "ECOM05A",
+            "nome": "Linguagens Formais",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Introdução à Linguagens Formais. Conceitos de Linguagens. Reconhecedores. Linguagens Regulares e expressões regulares. Autômatos Finitos. Linguagens Livre de Contexto. Máquinas de Turing.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECOT03A",
+            "nome": "Banco de Dados",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOT02A",
+              "ECOT12A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Introdução a sistemas de bancos de dados. Modelos de dados. Modelagem de dados: conceitual, lógico e físico. Modelo relacional. Álgebra relacional. Linguagem de consulta estruturada (SQL).",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECOT13A",
+            "nome": "Laboratório de Banco de Dados",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOT03A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECO140A",
+            "nome": "Metodologia Científica e Análise de Dados",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOP02A",
+              "ECOT02A",
+              "ECOT12A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Fundamentos da metodologia científica. Análise de dados. Estatística descritiva. Introdução à probabilidade. Teste de hipótese.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECO141A",
+            "nome": "Laboratório de Metodologia Científica e Análise de Dados",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECO140A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECAC09",
+            "nome": "Sinais e Sistemas e Introdução a Controle",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "MAT00D"
+            ],
+            "co_requisitos": [],
+            "ementa": "Classificação de sinais e sistemas. Transformada de Fourier. Transformada de Laplace. Funções de transferência. Resposta transitória e estacionária. Introdução a sistemas de controle.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECAC19",
+            "nome": "Laboratório de Sinais e Sistemas e Introdução a Controle",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECAC09"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "TELC03A",
+            "nome": "Redes de Computadores",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Camada de aplicação. Camada de transporte. Camada de rede. Camada de enlace. Segurança e redes móveis.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "TELC13A",
+            "nome": "Laboratório de Redes de Computadores",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "TELC03A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECOS03",
+            "nome": "Sistemas Operacionais Embarcados",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOS01A",
+              "ECOS11A",
+              "ECOP04"
+            ],
+            "co_requisitos": [],
+            "ementa": "Sistemas operacionais de tempo real. Drivers. Estruturas de sincronia e de proteção de acesso à recursos de hardware. Sistema operacional de propósito geral para sistemas embarcados. Ferramentas para geração de imagem de sistemas operacionais.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECOS13",
+            "nome": "Laboratório de Sistemas Operacionais Embarcados",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOS03"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECOM06A",
+            "nome": "Compiladores",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM05A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Conceitos e fundamentos de compiladores. Análise léxica. Análise sintática. Análise semântica. Geração de código intermediário. Otimização de código. Geração de código alvo.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 5,
+            "codigo": "ECOM07A",
+            "nome": "Métodos Numéricos e Computacionais",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOP02A",
+              "MAT00A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Teoria de erros. Zeros de funções. Sistemas de equações lineares. Interpolação. Integração numérica. Aplicações.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "ELTD03A",
+            "nome": "Microcontroladores e Microprocessadores",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTD01A",
+              "ELTD11A",
+              "ECOP04",
+              "ECOP14"
+            ],
+            "co_requisitos": [],
+            "ementa": "Arquiteturas típicas de microprocessadores e microcontroladores. Estruturas de barramentos e memórias. Periféricos e interfaces: I/O e LCD 16x2; Serial; Timer; Contadores; ADC; PWM; DMA; Conjunto de instruções. Pilha (stack). Subrotinas. Interrupções. Linguagem de programação de máquina (assembly).",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "ELTD13A",
+            "nome": "Laboratório de Microcontroladores e Microprocessadores",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTD03A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "TELC01A",
+            "nome": "Telecomunicações I",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "MAT00D"
+            ],
+            "co_requisitos": [],
+            "ementa": "Séries e transformada de Fourier contínuo. Codificação e modulação analógica e digital. Multiplexadores. Sistemas de telecomunicações.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "TELC11A",
+            "nome": "Laboratório de Telecomunicações I",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "TELC01A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "ECOT01A",
+            "nome": "Engenharia de Software",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOP13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ciclos de desenvolvimento de software. Especificação e análise de requisitos. Projeto de software. Gerenciamento de projeto. Ciclos de Entrega. Ciclo de vida de software. Manutenção de software.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "ECOT11A",
+            "nome": "Laboratório de Engenharia de Software",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOT01A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "ECOS02A",
+            "nome": "Sistemas Distribuídos",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOS01A",
+              "ECOS11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Arquitetura de sistemas distribuídos. Comunicação. Sincronização. Tolerância a falhas. Segurança.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "ECOS12A",
+            "nome": "Laboratório de Sistemas Distribuídos",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECOS02A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "ECOM08A",
+            "nome": "Inteligência Artificial",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Agentes inteligentes. Resolução de problemas por busca. Busca informada. Jogos. Lógica. Planejamento.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 6,
+            "codigo": "PBLE00",
+            "nome": "Fundamentos de Projetos Mecânicos",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Entropia, Energia e as Leis da Termodinâmica. Condução, Convecção e Radiação. Dissipação de calor em sistemas eletrônicos. Introdução a mecânica dos sólidos. Análise de resistência mecânica de embalagens. Projeto.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "ELTD05A",
+            "nome": "Projeto de Sistemas Digitais",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTD12A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Metodologia de projeto. Linguagem de descrição de hardware (VHDL). Simulação e síntese. Arquiteturas de hardware.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "ELTD15A",
+            "nome": "Laboratório de Projeto de Sistemas Digitais",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTD05A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "ECOS04",
+            "nome": "Simulação e Avaliação de Desempenho",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOS02A",
+              "ECOS12A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Introdução à simulação de sistemas. Modelos de simulação. Metodologias de simulação. Análise de desempenho de sistemas de computação.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "ELT052A",
+            "nome": "Química e Ciência dos materiais",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Estrutura atômica e Tabela Periódica. Ligações químicas e forças intermoleculares. Termodinâmica química. Cinética química. Equilíbrio químico. Materiais poliméricos. Materiais cerâmicos. Materiais metálicos.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "QUI212",
+            "nome": "Química Geral Experimental",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELT052A"
+            ],
+            "ementa": "Reações químicas. Processos de separação. Equilíbrio químico. Termoquímica. Eletroquímica.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "ECOM09A",
+            "nome": "Inteligência Artificial Aplicada",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOM08A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Otimizações evolutivas. Aprendizado de máquina supervisionado classificatório e de regressão. Aprendizado não supervisionado. Redes neurais e Deep Learning.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "TELC02A",
+            "nome": "Telecomunicações II",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "TELC01A",
+              "TELC11A",
+              "ELTA02A",
+              "ELTA12A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Codificação. Modulação digital. Propagação de ondas eletromagnéticas. Sistemas de comunicação de dados.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "TELC12A",
+            "nome": "Laboratório de Telecomunicações II",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "TELC02A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "PBLC01",
+            "nome": "Desenvolvimento de Projeto de Software",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOT03A",
+              "ECOT13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "JAVASCRIPT (Básico e Intermediário), Controle de versão com GIT. TYPESCRIPT e UML. Docker. Mapeamento Objeto Relacional. Desenvolvimento de API-Express. Projeto de Interface. REACT.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 7,
+            "codigo": "IEPG20",
+            "nome": "Introdução à Economia",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 8,
+            "codigo": "ECAC14A",
+            "nome": "Processamento Digital de Sinais",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECAC09",
+              "ECAC19"
+            ],
+            "co_requisitos": [],
+            "ementa": "Fundamentos de sistemas amostrados lineares. Implementação de sistemas discretos. Filtros digitais (FIR e IIR). Transformada discreta de Fourier. Transformada rápida de Fourier (FFT).",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 8,
+            "codigo": "ELTD04A",
+            "nome": "Microprocessador Avançado",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTD03A",
+              "ELTD13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Arquitetura de computadores. Pipelines. Hierarquia de memória. Computação paralela. Multiprocessamento.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 8,
+            "codigo": "ELTD14A",
+            "nome": "Laboratório de Microprocessador Avançado",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTD04A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 8,
+            "codigo": "ECO103",
+            "nome": "Informática e Sociedade",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ECOT01A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Relação entre Tecnologia, Ética e Sociedade. Impacto social e ambiental da Tecnologia da Informação. Legislação e regulamentação da área de Computação.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 8,
+            "codigo": "EMT070",
+            "nome": "Materiais e Ambiente",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Avaliação do Ciclo de Vida. Resíduos Urbanos e Industriais. Co-processamento. Reciclagem. Recursos Naturais. Legislação Ambiental.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 8,
+            "codigo": "IEPG22",
+            "nome": "Administração Aplicada",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Apresentação do processo evolutivo das Teorias da Administração. Fundamentos, áreas e conceitos utilizados de modo prático, por todos os profissionais, que tenham como atividade, a gestão de recursos físicos e humanos.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 8,
+            "codigo": "IEPG10",
+            "nome": "Engenharia Econômica",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 9,
+            "codigo": "TCC01-64H-ECO",
+            "nome": "Trabalho de Conclusão de Curso I",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 10,
+            "codigo": "TCC02-96H-ECO",
+            "nome": "Trabalho de Conclusão de Curso II",
+            "carga_horaria": 96,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 10,
+            "codigo": "ESTSUPERV-007-360",
+            "nome": "Estágio Supervisionado",
+            "carga_horaria": 360,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OBRIGATORIA (tipo não informado na fonte)"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX01",
+            "nome": "Arquitetura e Organização de Computadores",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ELTD03A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX02",
+            "nome": "Comunicação em Sistemas Embarcados",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOS03",
+              "TELC02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX03",
+            "nome": "Segurança da Informação",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOS01A",
+              "TELC03A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX04",
+            "nome": "Computação de Alto Desempenho",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOP02A",
+              "ECOS01A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX05",
+            "nome": "Desenvolvimento de Sistemas Web",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOP13A",
+              "ECOT03A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX06",
+            "nome": "Paradigmas de Programação",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOP13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX07",
+            "nome": "Programação Aplicada",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOP13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX08",
+            "nome": "Infraestrutura de Redes Locais",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "TELC03A",
+              "TELC13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX11",
+            "nome": "Tópicos Especiais em Engenharia de Software",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOT01A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX12",
+            "nome": "Tópicos Especiais em Sistemas Distribuídos",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOS02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX13",
+            "nome": "Tópicos Especiais em Inteligência Artificial",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOM08A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX14",
+            "nome": "Tópicos Especiais em Programação I",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOP02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX15",
+            "nome": "Tópicos Especiais em Programação II",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOP02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX21",
+            "nome": "Maratona de Programação I",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOP11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX22",
+            "nome": "Maratona de Programação II",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "ECOX21"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX31",
+            "nome": "Estudos Avançados I",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Tópicos de Pesquisa relacionados às disciplinas dos programas de Pós-graduação da UNIFEI.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX32",
+            "nome": "Estudos Avançados II",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Tópicos de Pesquisa relacionados às disciplinas dos programas de Pós-graduação da UNIFEI.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECOX33",
+            "nome": "Estudos Avançados III",
+            "carga_horaria": 64,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Tópicos de Pesquisa relacionados às disciplinas dos programas de Pós-graduação da UNIFEI.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "IEPG01",
+            "nome": "Empreendedorismo e Inovação",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Introdução. Teoria empreendedora (Visões & Relações). Características empreendedoras. Criatividade. Inovação e detecção de oportunidades.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ADM01E",
+            "nome": "Empreendedorismo e Novos Negócios",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ADM04E",
+            "nome": "Empreendedorismo e Sustentabilidade",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "LET007",
+            "nome": "Libras - Língua Brasileira de Sinais",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "IESTI01",
+            "nome": "TINYML-Aprendizado de Máquina Aplicado para Dispositivos IoT Embarcados",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTE02",
+            "nome": "Engenharia de Usabilidade",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECO101A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "PBLE01",
+            "nome": "Co-design de Produtos Eletrônicos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ELTA01A",
+              "ELTA11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTA03A",
+            "nome": "Condicionamento de Sinais",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTA01A",
+              "ELTA10A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTA13A",
+            "nome": "Laboratório de Condicionamento de Sinais",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTA03A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAT03",
+            "nome": "Instrumentação Eletrônica",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTA03A",
+              "ELTA13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAT13",
+            "nome": "Laboratório de Instrumentação Eletrônica",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECAT03"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "PBLE02",
+            "nome": "Board Bring-up e Validação de Protótipos Eletrônicos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "PBLE01",
+              "ECOP04"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "EMAG02",
+            "nome": "Eletromagnetismo Aplicado",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "EMAG01",
+              "FIS412"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "PBLE03",
+            "nome": "Projeto de Instrumentos e Transmissores",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ELTA00A",
+              "ELTA10A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "PBLE04",
+            "nome": "Projeto de Modulador Configurável em FPGA",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "TELC01A",
+              "TELC11A",
+              "ELTD05A",
+              "ELTD15A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTP01A",
+            "nome": "Máquinas e Acionamentos Eletrônicos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ELTA01A",
+              "ELTA10A",
+              "EMAG01",
+              "FIS412"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTP11A",
+            "nome": "Laboratório de Máquinas e Acionamentos Eletrônicos",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTP01A"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTA05",
+            "nome": "Compatibilidade Eletromagnética",
+            "carga_horaria": 48,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTE03",
+            "nome": "Projeto Robusto de Produtos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "PBLE01",
+              "ELTE02"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "PBLE05",
+            "nome": "Organização Industrial e Manufatura de Produtos Eletrônicos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "PBLE01",
+              "IEPG10"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTP02",
+            "nome": "Conversores Eletrônicos de Potência",
+            "carga_horaria": 32,
+            "pre_requisitos": [
+              "ELTP01A",
+              "ELTP11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ELTP12",
+            "nome": "Laboratório de Conversores Eletrônicos de Potência",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ELTP02"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAE01",
+            "nome": "Circuitos de Corrente Contínua",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAE11",
+            "nome": "Laboratório de Circuitos de Corrente Contínua",
+            "carga_horaria": 32,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECAE01"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAE02",
+            "nome": "Circuitos Alternados e Polifásicos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECAE01",
+              "ECAE11"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAE12",
+            "nome": "Laboratório de Circuitos Alternados e Polifásicos",
+            "carga_horaria": 16,
+            "pre_requisitos": [],
+            "co_requisitos": [
+              "ECAE02"
+            ],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAC02A",
+            "nome": "Controle Clássico",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECAC09",
+              "MAT252"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ECAC03A",
+            "nome": "Controle Moderno",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECAC02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "ADM03E",
+            "nome": "Empreendedorismo Tecnológico",
+            "carga_horaria": 48,
+            "pre_requisitos": [
+              "IEPG01"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "CDES05",
+            "nome": "Programação Lógica e Funcional",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOM01A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "CDES13",
+            "nome": "Desenvolvimento de Jogos",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOP13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "CMAC04",
+            "nome": "Modelagem Computacional",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "MAT00A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "CMCO05",
+            "nome": "Introdução à Visão Computacional",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOP13A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "SDES06",
+            "nome": "Gerência de Projetos de Software",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOT01A",
+              "ECOT11A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "XAHC02",
+            "nome": "Interação Humano-Computador",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOX05"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "XDES03",
+            "nome": "Programação Web",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "ECOP13A",
+              "ECOT03A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          },
+          {
+            "periodo": 0,
+            "codigo": "XMAC02",
+            "nome": "Métodos Matemáticos para Análise de Dados",
+            "carga_horaria": 64,
+            "pre_requisitos": [
+              "MAT00A",
+              "ECOM01A",
+              "ECOP02A"
+            ],
+            "co_requisitos": [],
+            "ementa": "Ementa não fornecida explicitamente na fonte.",
+            "competencia": "OPTATIVA"
+          }
+        ]
+      }
+    ]
+  }
+]

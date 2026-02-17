@@ -1,6 +1,7 @@
 import GraphConcluida from "./components/GraphConcluida";
 import FileUpload from "./utils/FileUpload";
 import Historico from "./utils/Historico";
+import Filtros from "./utils/Filtros";
 import { useCurriculo } from "../src/context/useDataContext";
 
 export default function App() {
@@ -8,6 +9,7 @@ export default function App() {
 
   // Verifica se a matriz foi carregada
   const temCurriculo = curriculo && curriculo.length > 0;
+  const temHistorico = history && history?.codigos?.length > 0;
 
   return (
     <div className="min-h-screen flex flex-col"> 
@@ -18,10 +20,11 @@ export default function App() {
           <div className="flex gap-3 flex-wrap justify-center items-center h-22">
             <FileUpload curriculo={curriculo}/>
             {curriculo.length>0 && <Historico history={history}/>}
+            {console.log(temCurriculo, temHistorico, history, history.length, curriculo)}
+            {(temCurriculo) && <Filtros />}
           </div>
         </div>
       </header>
-
       <main className="flex-1 pt-24"> {/* pt-24 evita que o header cubra o conteúdo inicial */}
         {temCurriculo ? (
           <GraphConcluida />

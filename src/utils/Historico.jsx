@@ -97,7 +97,7 @@ export default function Historico() {
         </div>
       ) : (
         <div className="text-white bg-green-600/20 px-4 py-2 rounded-lg border border-green-500 font-medium">
-          ✅ Histórico processado via Python!
+          ✅ Histórico processado!
         </div>
       )}
     </div>
