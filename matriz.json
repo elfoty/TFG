@@ -1,0 +1,865 @@
+[
+  {
+    "periodo": 1,
+    "codigo": "MAT00A",
+    "nome": "Cálculo A",
+    "carga_horaria": 64,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Funções. Limite e continuidade. Derivada. Integral."
+  },
+  {
+    "periodo": 1,
+    "codigo": "ECOP11A",
+    "nome": "Técnicas de Programação",
+    "carga_horaria": 64,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Introdução ao conceito de algoritmos. Linguagem de programação C. Comandos condicionais e de repetição. Vetores e matrizes. Tipos de dados enumerados. Estruturas heterogêneas. Funções. Funções de strings. Arquivos. Recursão."
+  },
+  {
+    "periodo": 1,
+    "codigo": "ECO101A",
+    "nome": "Introdução à Engenharia de Computação",
+    "carga_horaria": 48,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "O curso de Engenharia de Computação na UNIFEI. Introdução à Engenharia de Computação. A engenharia e a sociedade. Educação das relações étnico-raciais e ensino de história e cultura afro-brasileira, africana e indígena. Introdução ao sistema operacional Linux. Representação gráfica para projetos."
+  },
+  {
+    "periodo": 1,
+    "codigo": "ECOM00",
+    "nome": "Lógica para Engenharia",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Lógica proposicional. Sistemas de numeração. Álgebra booleana. Circuitos combinacionais."
+  },
+  {
+    "periodo": 1,
+    "codigo": "ECOM10",
+    "nome": "Laboratório de Lógica para Engenharia",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOM00"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECOM00) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 1,
+    "codigo": "ELTA00A",
+    "nome": "Circuitos e Eletrônica",
+    "carga_horaria": 64,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Conceitos básicos. Componentes e equipamentos elétricos e eletrônicos. Circuitos resistivos lineares. Circuitos não lineares. Potência e energia. Amplificador operacional ideal. Conceito de realimentação negativa e positiva. Configurações lineares e não lineares. Simulação com KICad. Introdução à instrumentação."
+  },
+  {
+    "periodo": 1,
+    "codigo": "ELTA10A",
+    "nome": "Laboratório de Circuitos e Eletrônica",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELTA00A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ELTA00A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 1,
+    "codigo": "LET014",
+    "nome": "Comunicação Oral para Fins Acadêmicos",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Linguagem e interação. Elementos do processo comunicativo. Manifestações linguísticas (linguagens verbal e não verbal). Comunicação oral e uso de recursos tecnológicos. Gêneros textuais orais: apresentação de trabalhos em disciplinas, apresentação de pôsteres e comunicações orais em eventos científicos, seminário palestra."
+  },
+  {
+    "periodo": 2,
+    "codigo": "MAT00D",
+    "nome": "Equações Diferenciais A",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "MAT00A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Equações diferenciais de primeira ordem. Equações diferenciais de segunda ordem. Equações diferencias de ordem n. Sistemas de equações diferenciais de primeira ordem e solução numérica de equações diferenciais ordinárias."
+  },
+  {
+    "periodo": 2,
+    "codigo": "FIS210",
+    "nome": "Física I",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "MAT00A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Cinemática: Movimentos em uma, duas e três dimensões. Movimento parabólico e circular. Dinâmica da partícula: Leis de Newton. Trabalho e energia. Conservação de energia. Momento linear. Colisões. Cinemática e dinâmica da rotação."
+  },
+  {
+    "periodo": 2,
+    "codigo": "FIS212",
+    "nome": "Física Experimental I",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "FIS210"
+    ],
+    "ementa": "Instrumentos de medição. Medição de grandezas físicas. Incerteza de medição. Propagação de erros. Gráficos. Experimentos de mecânica newtoniana."
+  },
+  {
+    "periodo": 2,
+    "codigo": "ECOP04",
+    "nome": "Programação Embarcada",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOP11A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Conceitos gerais de computação embarcada. Programação de sistemas embarcados utilizando linguagem C. Tipos de dados e operações com bits. Diretivas de compilação e pré-compilação. Utilização de periféricos: entradas e saídas digitais, DAC, PWM, Serial RS232, timers e watchdog. Multiplexação de entradas e saídas (displays e teclado). Interrupções. Organização e arquitetura de programas para sistemas embarcados. Limitações de sistemas embarcados."
+  },
+  {
+    "periodo": 2,
+    "codigo": "ECOP14",
+    "nome": "Laboratório de Programação Embarcada",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOP04"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECOP04) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 2,
+    "codigo": "ECOP02A",
+    "nome": "Estruturas de Dados",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "ECOP11A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Lista estática. Lista estática encadeada. Ponteiros. Alocação dinâmica. Lista dinâmica simplesmente encadeada. Lista dinâmica duplamente encadeada. Listas circulares. Pilhas. Filas. Árvores binárias de busca. Árvores balanceadas AVL. Árvores múltiplas. Árvores B. Tabelas de dispersão. Tratamento de colisões."
+  },
+  {
+    "periodo": 2,
+    "codigo": "ECOM01A",
+    "nome": "Matemática Discreta",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM00"
+    ],
+    "co_requisitos": [],
+    "ementa": "Técnicas de demonstração. Conjuntos e funções. Relações. Combinatória. Probabilidade discreta."
+  },
+  {
+    "periodo": 2,
+    "codigo": "ECOM11A",
+    "nome": "Programação Funcional",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Programação funcional. Linguagem Haskell. Cálculo lambda."
+  },
+  {
+    "periodo": 2,
+    "codigo": "LET013",
+    "nome": "Escrita Acadêmico-Científica",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Estrutura, organização, planejamento e produção de textos acadêmico-científicos. Linguagem, discurso, autoria e plágio na escrita acadêmica. Normas da ABNT. Gêneros textuais escritos: resumo acadêmico, relatório, artigo científico e projeto de pesquisa."
+  },
+  {
+    "periodo": 3,
+    "codigo": "MAT252",
+    "nome": "Álgebra Linear e Aplicações",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "MAT00D"
+    ],
+    "co_requisitos": [],
+    "ementa": "Matrizes. Espaços vetoriais. Ortogonalidade. Determinantes. Autovalores e autovetores. Matrizes definidas positivas. Cálculo com matrizes."
+  },
+  {
+    "periodo": 3,
+    "codigo": "FIS320",
+    "nome": "Física IIB",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "FIS210"
+    ],
+    "co_requisitos": [],
+    "ementa": "Fluidos. Temperatura. Calor e primeira Lei da Termodinâmica. Entropia e segunda Lei da Termodinâmica."
+  },
+  {
+    "periodo": 3,
+    "codigo": "FIS322",
+    "nome": "Física Experimental IIB",
+    "carga_horaria": 16,
+    "pre_requisitos": [
+      "FIS212"
+    ],
+    "co_requisitos": [
+      "FIS320"
+    ],
+    "ementa": "Experimentos de fluidos e termodinâmica."
+  },
+  {
+    "periodo": 3,
+    "codigo": "ELTA01A",
+    "nome": "Eletrônica Analógica I",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "ELTA00A"
+    ],
+    "co_requisitos": [
+      "ELTA10A"
+    ],
+    "ementa": "Caracterização de ondas alternadas. Fasor. Representação fasorial de tensões e correntes alternadas em regime permanente. Relação entre tensões e correntes senoidais em resistor, capacitor e indutor. Conceitos de impedância e admitância. Potência instantânea. Materiais semicondutores. Diodos. Circuitos com diodos. Reguladores de tensão. Transistores bipolares de junção (BJTs): polarização, circuitos de chaveamento, modelagem e amplificadores a pequeno sinal."
+  },
+  {
+    "periodo": 3,
+    "codigo": "ELTA11A",
+    "nome": "Laboratório de Eletrônica Analógica I",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELTA01A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ELTA01A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 3,
+    "codigo": "ELTD01A",
+    "nome": "Eletrônica Digital I",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM00"
+    ],
+    "co_requisitos": [
+      "ECOM10"
+    ],
+    "ementa": "Representação elétrica dos níveis lógicos (Níveis de tensão e margem de ruído). Funções Lógicas. Circuitos combinacionais: Multiplexadores, demultiplexadores, codificadores e decodificadores. Circuitos sequenciais: latchs e flip-flops, registradores, memória, contadores."
+  },
+  {
+    "periodo": 3,
+    "codigo": "ELTD11A",
+    "nome": "Laboratório de Eletrônica Digital I",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELTD01A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ELTD01A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 3,
+    "codigo": "ECOM02A",
+    "nome": "Teoria dos Grafos",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM01A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Conceitos básicos. Representações. Árvores. Caminhos. Coloração. Fluxo em redes. Emparelhamento. Aplicações."
+  },
+  {
+    "periodo": 3,
+    "codigo": "ECOP13A",
+    "nome": "Programação Orientada a Objetos",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "ECOP11A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Introdução à linguagem C++. Classes, objetos e abstração de dados. Sobrecarga de operadores. Herança. Funções virtuais e polimorfismo. Tratamento de exceções. Gabaritos. Introdução à biblioteca padrão de gabaritos (STL)."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ELTA02A",
+    "nome": "Eletrônica Analógica II",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ELTA01A",
+      "ELTA11A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Transistores de efeito de campo (FETs): polarização, modelagem e amplificadores a pequeno sinal. Resposta em frequência de amplificadores de pequeno sinal. Amplificadores de potência. Configurações compostas de amplificadores."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ELTA12A",
+    "nome": "Laboratório de Eletrônica Analógica II",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELTA02A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ELTA02A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 4,
+    "codigo": "EMAG01",
+    "nome": "Eletromagnetismo",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "FIS210",
+      "FIS212"
+    ],
+    "co_requisitos": [],
+    "ementa": "Cálculo vetorial. Eletroestática e magnetostática. Circuitos magnéticos."
+  },
+  {
+    "periodo": 4,
+    "codigo": "FIS412",
+    "nome": "Física Experimental III",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "EMAG01"
+    ],
+    "ementa": "Experimentos de Eletromagnetismo."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ELTD12A",
+    "nome": "Eletrônica Digital II",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ELTD01A",
+      "ELTD11A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Descrição de circuitos e sistemas digitais utilizando linguagem de descrição de hardware (HDL). Circuitos aritméticos. ULA. Máquinas de estado. Sistemas digitais (fluxo de dados e unidade de controle). Dispositivos lógicos programáveis."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ECOM03A",
+    "nome": "Análise de Algoritmos",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOP02A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Introdução à análise de algoritmos. Complexidade dos métodos de ordenação. Algoritmos em grafos. Métodos de projeto de algoritmos. Complexidade do problema."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ECOS01A",
+    "nome": "Sistemas Operacionais",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOP02A",
+      "ECOP04"
+    ],
+    "co_requisitos": [
+      "ECOP14"
+    ],
+    "ementa": "Apresentar conceitos básicos de Sistemas operacionais. Demonstrar metodologias e implementação de gerência de processos e de memória, Sistemas de E/S, Sistemas de arquivos e Máquinas virtuais."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ECOS11A",
+    "nome": "Laboratório de Sistemas Operacionais",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOS01A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECOS01A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ECOT02A",
+    "nome": "Projeto de Software",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOP13A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Linguagem de programação orientada a objetos Java. Modelagem em projeto de software orientado à objetos. Introdução à notação UML. Padrões de projeto de criação, de estruturação e de comportamento. Implementação de modelo de projeto orientado à objetos."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ECOT12A",
+    "nome": "Laboratório de Projeto de Software",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOT02A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECOT02A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 4,
+    "codigo": "ECOM05A",
+    "nome": "Linguagens Formais",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM02A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Conceitos básicos de linguagens. Autômatos Finitos Determinísticos e Não-determinísticos. Linguagens Regulares. Linguagens Livres de Contexto. Linguagens Sensíveis ao Contexto. Máquinas de Turing."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECOT03A",
+    "nome": "Banco de Dados",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOT02A",
+      "ECOT12A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Modelos físicos e conceituais de banco de dados. Projeto, implementação e manipulação dos modelos de bancos de dados."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECOT13A",
+    "nome": "Laboratório de Banco de Dados",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOT03A"
+    ],
+    "ementa": "Projetar, implementar e manipular banco de dados relacional, orientado a objetos, orientado a grafos, hierárquico e multidimensional."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECO140A",
+    "nome": "Metodologia Científica e Análise de Dados",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOP02A",
+      "ECOT02A",
+      "ECOT12A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Latex. Regras ABNT. O Método Científico. Discussões Científicas. Estatística Científica."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECO141A",
+    "nome": "Laboratório de Metodologia Científica e Análise de Dados",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECO140A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECO140A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECAC09",
+    "nome": "Sinais e Sistemas e Introdução a Controle",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "MAT00D"
+    ],
+    "co_requisitos": [],
+    "ementa": "Sinais e sistemas de tempo contínuo e discreto. Modelagem conceitual de sistemas físicos. Critérios de estabilidade. Resposta em frequência. Introdução ao controle de sistemas dinâmicos."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECAC19",
+    "nome": "Laboratório de Sinais e Sistemas e Introdução a Controle",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECAC09"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECAC09) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 5,
+    "codigo": "TELC03A",
+    "nome": "Redes de Computadores",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM02A"
+    ],
+    "co_requisitos": [
+      "ECOS01A"
+    ],
+    "ementa": "Camada de aplicação. Camada de transporte. Camada de rede. Camada de enlace. Segurança e redes móveis."
+  },
+  {
+    "periodo": 5,
+    "codigo": "TELC13A",
+    "nome": "Laboratório de Redes de Computadores",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "TELC03A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (TELC03A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECOS03",
+    "nome": "Sistemas Operacionais Embarcados",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOS11A",
+      "ECOP04"
+    ],
+    "co_requisitos": [],
+    "ementa": "Sistemas operacionais de tempo real. Drivers. Estruturas de sincronia e de proteção de acesso à recursos de hardware. Sistema operacional de propósito geral para sistemas embarcados. Ferramentas para geração de imagem de sistemas operacionais."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECOS13",
+    "nome": "Laboratório de Sistemas Operacionais Embarcados",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOS03"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECOS03) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECOM06A",
+    "nome": "Compiladores",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM05A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Introdução a compiladores. Análise léxica. Análise sintática. Análise top-down. Análise bottom-up. Tradução dirigida por sintaxe. Geração de código intermediário."
+  },
+  {
+    "periodo": 5,
+    "codigo": "ECOM07A",
+    "nome": "Métodos Numéricos e Computacionais",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOP02A",
+      "MAT00A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Conceitos e princípios gerais em cálculo numérico. Métodos Numéricos em Python. Raízes de equações. Sistemas de equações lineares. Interpolação e aproximação de funções a uma variável real. Integração numérica."
+  },
+  {
+    "periodo": 6,
+    "codigo": "ELTD03A",
+    "nome": "Microcontroladores e Microprocessadores",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ELTD01A",
+      "ELTD11A",
+      "ECOP04",
+      "ECOP14"
+    ],
+    "co_requisitos": [],
+    "ementa": "Arquiteturas típicas de microprocessadores e microcontroladores. Estruturas de barramentos e memórias. Periféricos e interfaces: I/O e LCD16x2; Serial; Timer; Contadores; ADC; PWM; DMA; Conjunto de instruções. Pilha (stack). Subrotinas. Interrupções. Linguagem de programação de máquina (assembly)."
+  },
+  {
+    "periodo": 6,
+    "codigo": "ELTD13A",
+    "nome": "Laboratório de Microcontroladores e Microprocessadores",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELTD03A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ELTD03A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 6,
+    "codigo": "TELC01A",
+    "nome": "Telecomunicações I",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "MAT00D"
+    ],
+    "co_requisitos": [],
+    "ementa": "Séries e transformada de Fourier contínuo. Codificação e modulação analógica e digital. Multiplexadores. Sistemas de telecomunicações."
+  },
+  {
+    "periodo": 6,
+    "codigo": "TELC11A",
+    "nome": "Laboratório de Telecomunicações I",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "TELC01A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (TELC01A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 6,
+    "codigo": "ECOT01A",
+    "nome": "Engenharia de Software",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOP13A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Ciclos de desenvolvimento de software. Especificação e análise de requisitos. Projeto de software. Gerenciamento de projeto. Ciclos de Entrega. Ciclo de vida de software. Manutenção de software."
+  },
+  {
+    "periodo": 6,
+    "codigo": "ECOT11A",
+    "nome": "Laboratório de Engenharia de Software",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOT01A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECOT01A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 6,
+    "codigo": "ECOS02A",
+    "nome": "Sistemas Distribuídos",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOS01A",
+      "ECOS11A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Introdução aos conceitos básicos. Modelos arquiteturais. Comunicação entre processos. Sincronização. Projetos de aplicações distribuídas. Estudos de caso."
+  },
+  {
+    "periodo": 6,
+    "codigo": "ECOS12A",
+    "nome": "Laboratório de Sistemas Distribuídos",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ECOS02A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ECOS02A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 6,
+    "codigo": "ECOM08A",
+    "nome": "Inteligência Artificial",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM02A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Introdução à Inteligência Artificial. Busca. Aprendizado de máquina supervisionado para classificação e regressão. Aprendizado de máquina não supervisionado."
+  },
+  {
+    "periodo": 6,
+    "codigo": "PBLE00",
+    "nome": "Fundamentos de Projetos Mecânicos",
+    "carga_horaria": 64,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Introdução à transferência de calor e dinâmica dos fluidos. Estudo de caso: impressão 3d por deposição. Mecânica dos sólidos. Tensão e grandezas tensoriais. Tração e compressão. Torção e flexão de vigas. Estudo de caso: resistência de objetos impressos."
+  },
+  {
+    "periodo": 7,
+    "codigo": "ELTD05A",
+    "nome": "Projeto de Sistemas Digitais",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ELTD12A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Projeto de um Softcore RISC (ALU, memórias, banco de registradores) utilizando linguagens de descrição de hardware. Otimização de projeto para velocidade, área e/ou energia. Crossing Clock Domains."
+  },
+  {
+    "periodo": 7,
+    "codigo": "ELTD15A",
+    "nome": "Laboratório de Projeto de Sistemas Digitais",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELTD05A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ELTD05A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 7,
+    "codigo": "ECOS04",
+    "nome": "Simulação e Avaliação de Desempenho",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOS02A",
+      "ECOS12A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Distribuições discretas e contínuas. Geração de números aleatórios. Planejamento e análise de experimentos. Teoria de filas. Simulação. Processos estocásticos."
+  },
+  {
+    "periodo": 7,
+    "codigo": "ELT052A",
+    "nome": "Química e Ciência dos Materiais",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Estrutura atômica e cálculos estequiométricos. Interações interatômicas e intermoleculares. Metais e cerâmicas. Difusão. Eletroquímica. Propriedades dos materiais: mecânicas, elétricas, térmicas, magnéticas e ópticas. Síntese (cinética química), fabricação processamento e aplicações dos materiais."
+  },
+  {
+    "periodo": 7,
+    "codigo": "QUI212",
+    "nome": "Química Geral Experimental",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELT052A"
+    ],
+    "ementa": "Reações químicas. Processo de separação. Equilíbrio químico. Termoquímica. Eletroquímica."
+  },
+  {
+    "periodo": 7,
+    "codigo": "ECOM09A",
+    "nome": "Inteligência Artificial Aplicada",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOM08A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Introdução à Inteligência Artificial Aplicada. Otimizações Evolutivas. Redes Neurais Artificiais. Aprendizado Profundo. Avanços em Inteligência Artificial."
+  },
+  {
+    "periodo": 7,
+    "codigo": "TELC02A",
+    "nome": "Telecomunicações II",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "TELC11A",
+      "ELTA02A",
+      "ELTA12A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Séries e transformada de Fourier discreta. Circuitos moduladores e demoduladores. Osciladores e sintetizadores. Modulação multiportadora. Rádio definido por software. Ruído em sistemas de telecomunicações. Teoria da informação. Codificação de controle de erro. Espalhamento espectral. Circuitos em radiofrequência. Especificações técnicas em sistemas de comunicações."
+  },
+  {
+    "periodo": 7,
+    "codigo": "TELC12A",
+    "nome": "Laboratório de Telecomunicações II",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "TELC02A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (TELC02A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 7,
+    "codigo": "PBLC01",
+    "nome": "Desenvolvimento de Projeto de Software",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "ECOT13A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Desenvolvimento de software usando: JAVASCRIPT (básico e intermediário) e controle de versão. TYPESCRIPT e UML (Encapsulamento e Relacionamento; Herança e Polimorfismo). Docker. Mapeamento Objeto Relacional. Desenvolvimento de APIs. Projeto de Interface e Design. REACT. Login. Material UI-MUI. Docker Compose."
+  },
+  {
+    "periodo": 7,
+    "codigo": "IEPG20",
+    "nome": "Introdução à Economia",
+    "carga_horaria": 48,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Natureza e método de economia. História do pensamento econômico. Microeconomia. Macroeconomia. Teoria de Keynes. Teoria monetária. Teoria do setor público. Teoria do desenvolvimento e das relações internacionais."
+  },
+  {
+    "periodo": 8,
+    "codigo": "ECAC14A",
+    "nome": "Processamento Digital de Sinais",
+    "carga_horaria": 64,
+    "pre_requisitos": [
+      "ECAC09",
+      "ECAC19"
+    ],
+    "co_requisitos": [],
+    "ementa": "Transformada discreta de Fourier. Filtros digitais. Processamento em tempo real."
+  },
+  {
+    "periodo": 8,
+    "codigo": "ELTD04A",
+    "nome": "Microprocessador Avançado",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ELTD03A",
+      "ELTD13A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Arquitetura RISC. Introdução ao processador RISCV. Arquitetura do conjunto de instruções (ISA) do processador RISCV. Microarquitetura do processador RISCV. Microarquiteturas SweRV EH1 Core e SweRV EH1 Core Complex. Microarquitetura SweRVolfx Soc. SweRVolfx SoC na placa Nexys A7 e Simulação."
+  },
+  {
+    "periodo": 8,
+    "codigo": "ELTD14A",
+    "nome": "Laboratório de Microprocessador Avançado",
+    "carga_horaria": 16,
+    "pre_requisitos": [],
+    "co_requisitos": [
+      "ELTD04A"
+    ],
+    "ementa": "Consultar Ementa da disciplina teórica (ELTD04A) ou Seção 4.5 do PPC."
+  },
+  {
+    "periodo": 8,
+    "codigo": "ECO103",
+    "nome": "Informática e Sociedade",
+    "carga_horaria": 32,
+    "pre_requisitos": [
+      "ECOT01A"
+    ],
+    "co_requisitos": [],
+    "ementa": "Ética pessoal, profissional e pública na área de informática. Dilemas éticos do profissional da informática, privacidade, vírus hacking, uso da internet e direitos autorais. Responsabilidade social. O profissional e o mercado de trabalho. Trabalho e relações humanas. Legislação. Educação em Direitos Humanos."
+  },
+  {
+    "periodo": 8,
+    "codigo": "EMT070",
+    "nome": "Materiais e Ambiente",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Avaliação do Ciclo de Vida. Resíduos urbanos e industriais (gestão). Co-processamento no Brasil. Incineração. Gaseificação. Compostagem. Reciclagem. Recursos naturais. Legislação ambiental."
+  },
+  {
+    "periodo": 8,
+    "codigo": "IEPG22",
+    "nome": "Administração Aplicada",
+    "carga_horaria": 32,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Introdução aos conceitos básicos de administração. Tipos de organização. Principais áreas de uma organização: pessoal, finanças, marketing, planejamento, operações e logística. Sistema de informações."
+  },
+  {
+    "periodo": 8,
+    "codigo": "IEPG10",
+    "nome": "Engenharia Econômica",
+    "carga_horaria": 48,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Conceitos fundamentais sobre engenharia econômica. Matemática financeira. Análise de alternativas de investimentos. Técnicas de tomada de decisão (VPL, TIR, VA, Pay-Back). Métodos de depreciação. Influência dos impostos sobre lucro. Influência do financiamento com capital de terceiros. Demonstração de resultados de um projeto. Fluxo de caixa livre do empreendimento e do empreendedor. Análise de risco e incerteza na avaliação de projetos."
+  },
+  {
+    "periodo": 9,
+    "codigo": "TCC01-64H-ECO",
+    "nome": "Trabalho de Conclusão de Curso I",
+    "carga_horaria": 64,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Consultar Seção de Trabalhos de Conclusão de Curso do PPC."
+  },
+  {
+    "periodo": 10,
+    "codigo": "TCC02-96H-ECO",
+    "nome": "Trabalho de Conclusão de Curso II",
+    "carga_horaria": 96,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Consultar Seção de Trabalhos de Conclusão de Curso do PPC."
+  },
+  {
+    "periodo": 10,
+    "codigo": "ESTSUPERV-007-360",
+    "nome": "Estágio Supervisionado",
+    "carga_horaria": 360,
+    "pre_requisitos": [],
+    "co_requisitos": [],
+    "ementa": "Consultar Seção de Estágio Supervisionado do PPC."
+  }
+]
