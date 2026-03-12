@@ -9,7 +9,6 @@ export default function App() {
 
   // Verifica se a matriz foi carregada
   const temCurriculo = curriculo && curriculo.length > 0;
-  const temHistorico = history && history?.codigos?.length > 0;
 
   return (
     <div className="min-h-screen flex flex-col"> 
@@ -18,9 +17,7 @@ export default function App() {
           <h1 className="text-white font-bold text-xl hidden md:block">Grade UNIFEI</h1>
           
           <div className="flex gap-3 flex-wrap justify-center items-center h-22">
-            <FileUpload curriculo={curriculo}/>
             {curriculo.length>0 && <Historico history={history}/>}
-            {console.log(temCurriculo, temHistorico, history, history.length, curriculo)}
             {(temCurriculo) && <Filtros />}
           </div>
         </div>
@@ -29,8 +26,9 @@ export default function App() {
         {temCurriculo ? (
           <GraphConcluida />
         ) : (
-          <div className="flex flex-col items-center justify-center h-[60vh] text-white text-center px-4">
-            <p className="text-2xl font-light">Para começar, faça o upload da sua <b>Matriz Curricular</b>.</p>
+          <div className="flex flex-col items-center justify-center gap-5 h-[60vh] text-white text-center px-4">
+            <p className="text-2xl font-light">Para começar, <b>selecione a grade curricular</b> abaixo.</p>
+            <FileUpload />
           </div>
         )}
       </main>
