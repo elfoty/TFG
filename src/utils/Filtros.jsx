@@ -17,12 +17,12 @@ export default function Filtros() {
           <select
             value={valorFiltro} // Garante que é uma string
             onChange={(e) => setFiltros(e.target.value)}
-            class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
-            <option value="padrao">Padrão</option>
-            <option value="gargalos">Gargalos (PageRank)</option>
-            <option value="desbloqueio">Potencial de Desbloqueio (Grau)</option>
-            <option value="pontes">Pontes Estratégicas (Betweenness)</option>
-            <option value="nucleo">Núcleo do Curso (Closeness)</option>
+            class="w-half cursor-pointer rounded bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg flex items-center gap-2 font-medium focus:shadow-md appearance-none ">
+            <option value="padrao">Selecione um filtro</option>
+            <option value="gargalos">Disciplinas mais influentes (PageRank)</option>
+            <option value="desbloqueio">Disciplinas mais conectadas (Grau)</option>
+            <option value="pontes">Disciplinas que ligam trilhas (Betweenness)</option>
+            <option value="nucleo">Disciplinas mais centrais (Closeness)</option>
           </select>
         </div>
       </div>

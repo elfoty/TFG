@@ -1,34 +1,37 @@
-
-
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
   margin: 0;
-  background-color: #197fff ;
 }
-#cy {
+
+.imagem-fundo{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image:
+    linear-gradient(rgba(25,127,255,0.6), rgba(25,127,255,0.6)),
+    url('./assets/network_perfect_loop_white_bg.gif');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(2px);
+  opacity: 0.9;
+  transform: scale(150%);
+
+  pointer-events: none;
+}
+
+#cy{
+  position: fixed;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0; /* Diminua o z-index do gráfico */
+  z-index: 0;
 }
 
-/* Garanta que a interface fique por cima */
-.interface-container {
+.interface-container{
   position: relative;
-  z-index: 50; 
-}
-
-.tooltip {
-  position: absolute;
-  background: #222;
-  color: red;
-  padding: 5px 10px;
-  border-radius: 4px;
-  pointer-events: none;
-  font-size: 14px;
-  z-index: 9999;
+  z-index: 50;
 }

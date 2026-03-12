@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col"> 
-      <header className="fixed top-0 left-0 w-full z-[100] bg-[#197fff]/90 ">
+      <header className="fixed top-0 left-0 w-full z-[100] bg-[#197fff]/90 backdrop-opacity-10">
         <div className="max-w-7xl mx-auto flex flex-wrap gap-4 justify-between items-center">
           <h1 className="text-white font-bold text-xl hidden md:block">Grade UNIFEI</h1>
           
