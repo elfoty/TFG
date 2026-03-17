@@ -14,93 +14,92 @@ export default function UploadCurriculo() {
 
   async function handleFileChange(e) {
     try {
-    // const res = await fetch(url, { method: "POST", body: formData });
-    // const text = await res.text();
-    // console.log("raw response:", text);
+      // const res = await fetch(url, { method: "POST", body: formData });
+      // const text = await res.text();
+      // console.log("raw response:", text);
 
-    // const data = JSON.parse(text);
-    const resp = await fetch(`/matriz${e}.json`);
-    if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
+      // const data = JSON.parse(text);
+      const resp = await fetch(`${import.meta.env.BASE_URL}matriz${e}.json`); if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
 
-    const data = await resp.json();
-    setCurriculo(data);
+      const data = await resp.json();
+      setCurriculo(data);
 
-    const grouped = data.reduce((acc, disc) => {
-      if (!acc[disc.periodo]) acc[disc.periodo] = [];
-      acc[disc.periodo].push(disc);
-      return acc;
-    }, {});
+      const grouped = data.reduce((acc, disc) => {
+        if (!acc[disc.periodo]) acc[disc.periodo] = [];
+        acc[disc.periodo].push(disc);
+        return acc;
+      }, {});
 
-    setPorPeriodo(grouped);
-    console.log("porPeriodo:", grouped);
-  } catch (err) {
-    console.error(err);
-    alert("Erro ao processar PDF");
-  } finally {
-    setLoading(false);
+      setPorPeriodo(grouped);
+      console.log("porPeriodo:", grouped);
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao processar PDF");
+    } finally {
+      setLoading(false);
+    }
   }
-}
 
-// async function handleUpload() {
-//   if (!file) {
-//     alert("Selecione um PDF");
-//     return;
-//   }
+  // async function handleUpload() {
+  //   if (!file) {
+  //     alert("Selecione um PDF");
+  //     return;
+  //   }
 
-//   setLoading(true);
+  //   setLoading(true);
 
-//   const formData = new FormData();
-//   formData.append("file", file);
+  //   const formData = new FormData();
+  //   formData.append("file", file);
 
-//   const url = "https://elfoty.app.n8n.cloud/webhook-test/upload-pdf";
-//   const urlLocal = "http://localhost:5678/webhook-test/upload-pdf";
+  //   const url = "https://elfoty.app.n8n.cloud/webhook-test/upload-pdf";
+  //   const urlLocal = "http://localhost:5678/webhook-test/upload-pdf";
 
-//   try {
-//     // const res = await fetch(url, { method: "POST", body: formData });
-//     // const text = await res.text();
-//     // console.log("raw response:", text);
+  //   try {
+  //     // const res = await fetch(url, { method: "POST", body: formData });
+  //     // const text = await res.text();
+  //     // console.log("raw response:", text);
 
-//     // const data = JSON.parse(text);
-//     const resp = await fetch("/matriz2015.json");
-//     if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
+  //     // const data = JSON.parse(text);
+  //     const resp = await fetch("/matriz2015.json");
+  //     if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
 
-//     const data = await resp.json();
-//     setCurriculo(data);
+  //     const data = await resp.json();
+  //     setCurriculo(data);
 
-//     const grouped = data.reduce((acc, disc) => {
-//       if (!acc[disc.periodo]) acc[disc.periodo] = [];
-//       acc[disc.periodo].push(disc);
-//       return acc;
-//     }, {});
+  //     const grouped = data.reduce((acc, disc) => {
+  //       if (!acc[disc.periodo]) acc[disc.periodo] = [];
+  //       acc[disc.periodo].push(disc);
+  //       return acc;
+  //     }, {});
 
-//     setPorPeriodo(grouped);
-//     console.log("porPeriodo:", grouped);
-//   } catch (err) {
-//     console.error(err);
-//     alert("Erro ao processar PDF");
-//   } finally {
-//     setLoading(false);
-//   }
-// }
+  //     setPorPeriodo(grouped);
+  //     console.log("porPeriodo:", grouped);
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Erro ao processar PDF");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
 
-return (
-  <div className="z-50"> {/* Força ficar na frente */}
+  return (
+    <div className="z-50"> {/* Força ficar na frente */}
 
-    <form className="max-w-sm mx-auto">
-      <div class="w-full max-w-sm min-w-[200px]">
-        <div class="relative">
-          <select
-            onChange={(e) => handleFileChange(e.target.value)}
-            class="w-half cursor-pointer rounded bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg flex items-center gap-2 font-medium focus:shadow-md appearance-none ">
-            <option value="2015">Grade 2015</option>
-            <option value="2022">Grade 2022</option>
-            <option value="2026">Grade 2026</option>
-          </select>
+      <form className="max-w-sm mx-auto">
+        <div className="w-full max-w-sm min-w-50">
+          <div className="relative">
+            <select
+              onChange={(e) => handleFileChange(e.target.value)}
+              className="w-half cursor-pointer rounded bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg flex items-center gap-2 font-medium focus:shadow-md appearance-none ">
+              <option value="2015">Grade 2015</option>
+              <option value="2022">Grade 2022</option>
+              <option value="2026">Grade 2026</option>
+            </select>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
 
-    {/*curriculo.length === 0 && (
+      {/*curriculo.length === 0 && (
         <div className="flex items-center flex-col relative">
           <div className="flex gap-0 items-center">
             <input
@@ -128,8 +127,8 @@ return (
         </div>
       )*/}
 
-  </div>
-);
+    </div>
+  );
 }
 
 {
