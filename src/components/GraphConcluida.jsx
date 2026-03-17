@@ -324,7 +324,7 @@ export default function GraphConcluida() {
           elements: [...headerNodes, ...nodes, ...edges],
           autoungrabify: true,
           userPanningEnabled: false,
-          userZoomingEnabled: false,
+          userZoomingEnabled: true,
           style: [
             {
               selector: "node",

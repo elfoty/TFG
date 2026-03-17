@@ -37,7 +37,7 @@ STATUS_OK = {"APR", "APRN", "CUMP", "DISP", "TRANS", "INCORP"}
 # 4) Regex/validadores do formato SIGAA
 # =========================
 # Período no começo da linha (ex.: "2018.1" ou "--")
-RE_PERIODO = re.compile(r"^\s*(\d{4}\.\d|--)\b")
+RE_PERIODO = re.compile(r"^\s*(\d{4}\.\d|--)(?=\s|$)")
 
 # Token de código “puro” (não é search no texto todo; é validação de token)
 # Exemplos aceitos: MAT001, ECOS01A, ADM01E, ECOE01, MAT00N, ELTA00, TELC12A...
