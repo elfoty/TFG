@@ -91,6 +91,7 @@ export default function UploadCurriculo() {
             <select
               onChange={(e) => handleFileChange(e.target.value)}
               className="w-half cursor-pointer rounded bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg flex items-center gap-2 font-medium focus:shadow-md appearance-none ">
+              <option value="">Selecione uma grade</option>
               <option value="2015">Grade 2015</option>
               <option value="2022">Grade 2022</option>
               <option value="2026">Grade 2026</option>
