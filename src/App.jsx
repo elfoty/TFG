@@ -30,7 +30,7 @@ export default function App() {
           <GraphConcluida />
         ) : (
           <div className="flex flex-col items-center justify-center h-[60vh] text-white text-center px-4">
-            <p className="text-2xl font-light">Para começar, faça o upload da sua <b>Matriz Curricular</b>.</p>
+            <p className="text-2xl font-light">Para começar, <b>selecione a grade</b>.</p>
           </div>
         )}
       </main>
