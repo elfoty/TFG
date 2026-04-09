@@ -439,8 +439,8 @@ export default function GraphConcluida() {
             {
               selector: "node.disponivel",
               style: {
-                "border-width": 4,
-                "border-color": "#22c55e",
+                "border-width": 3,
+                "border-color": "#00e5ff",
               },
             },
             {
@@ -692,7 +692,7 @@ export default function GraphConcluida() {
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="inline-block w-8 h-4 rounded-md border-2" style={{ background: "#2563eb", borderColor: "#22c55e" }} />
+                <span className="inline-block w-8 h-4 rounded-md border-2" style={{ background: "#2563eb", borderColor: "#00e5ff" }} />
                 <span className="text-[11px] text-gray-700">Disponível (pré-requisitos OK)</span>
               </div>
 
