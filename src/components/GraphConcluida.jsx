@@ -439,7 +439,7 @@ export default function GraphConcluida() {
             {
               selector: "node.disponivel",
               style: {
-                "border-width": 3,
+                "border-width": 4,
                 "border-color": "#22c55e",
               },
             },

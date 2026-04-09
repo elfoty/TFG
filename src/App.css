@@ -9,7 +9,7 @@ html, body, #root {
   z-index: -2;
 
   background-image:
-    linear-gradient(rgba(25,127,255,0.6), rgba(25,127,255,0.6)),
+    linear-gradient(rgba(14, 116, 144, 0.18), rgba(14, 116, 144, 0.18)),
     url('./assets/network_perfect_loop_white_bg.gif');
 
   background-size: cover;
