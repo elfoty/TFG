@@ -12,7 +12,7 @@ export default function Filtros() {
 
   return (
     <form className="max-w-sm mx-auto">
-      <div class="w-full max-w-sm min-w-[200px]">
+      <div class="w-full max-w-sm min-w-50">
         <div class="relative">
           <select
             value={valorFiltro} // Garante que é uma string

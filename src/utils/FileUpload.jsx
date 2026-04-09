@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react"; import Graph from "../component
 import GraphConcluida from "../components/GraphConcluida";
 import { useCurriculo } from "../context/useDataContext";
 import "../App.css";
+import { toast } from "sonner";
 
 export default function UploadCurriculo() {
   const fileInputRef = useRef(null);
@@ -34,7 +35,8 @@ export default function UploadCurriculo() {
       console.log("porPeriodo:", grouped);
     } catch (err) {
       console.error(err);
-      alert("Erro ao processar PDF");
+      toast("Erro ao carregar grade curricular",{ position:center})
+      alert("Erro ao carregar grade curricular");
     } finally {
       setLoading(false);
     }
