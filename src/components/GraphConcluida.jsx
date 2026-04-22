@@ -3,19 +3,25 @@ import cytoscape from "cytoscape";
 import "../App.css";
 import { useCurriculo } from "../context/useDataContext";
 import ModalSubjects from "./ModalSubjects";
+import ModalSugestoes from "./modalHint";
 
 const normalizar = (txt) =>
-  txt?.toUpperCase()
+  txt
+    ?.toUpperCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^A-Z0-9]/g, "")
     .trim();
 
-export default function GraphConcluida() {
+export default function GraphConcluida({
+  openModalSugestoes,
+  setOpenModalSugestoes,
+}) {
   const [graphVersion, setGraphVersion] = useState(0);
-  const [ocultarConcluidasNoGrafo, setOcultarConcluidasNoGrafo] = useState(false);
+  const [ocultarConcluidasNoGrafo, setOcultarConcluidasNoGrafo] =
+    useState(false);
   const toggleOcultarConcluidasNoGrafo = () =>
-    setOcultarConcluidasNoGrafo(v => !v);
+    setOcultarConcluidasNoGrafo((v) => !v);
   const cyMetricRef = useRef(null);
   const { history, curriculo, filtros } = useCurriculo();
 
@@ -24,13 +30,21 @@ export default function GraphConcluida() {
   const [subjectCompleted, setSubjectCompleted] = useState([]);
 
   const [pendent, setPendant] = useState([]);
-
   const [showSubjectCompleted, setShowSubjectCompleted] = useState(false);
   const [showSubjectPendant, setShowSubjecPendant] = useState(false);
+  const [sugestoes, setSugestoes] = useState([]);
+  const [hideLegend, setHideLegend] = useState(false);
 
   function onCloseModal() {
     setModalAberto(false);
     console.log("cliquei", modalAberto);
+  }
+  function onCloseLegend() {
+    setHideLegend(!hideLegend);
+    console.log(" cliqui em esconde legenda")
+  }
+  function onCloseSugestoesModal() {
+    setOpenModalSugestoes(false);
   }
   function setShowFilterCompleted() {
     setShowSubjectCompleted(!showSubjectCompleted);
@@ -45,12 +59,15 @@ export default function GraphConcluida() {
   const cyInstance = useRef(null); // Ref para permitir que o efeito de filtros acesse o grafo
 
   function buildHeadlessCyFrom(cy, reverseEdges = false) {
-    const nodes = cy.nodes().filter(n => !n.data("isHeader")).map(n => ({ data: { ...n.data() } }));
-    const nodeIds = new Set(nodes.map(n => n.data.id));
+    const nodes = cy
+      .nodes()
+      .filter((n) => !n.data("isHeader"))
+      .map((n) => ({ data: { ...n.data() } }));
+    const nodeIds = new Set(nodes.map((n) => n.data.id));
 
     const edges = [];
 
-    cy.edges().forEach(e => {
+    cy.edges().forEach((e) => {
       const s = e.data("source");
       const t = e.data("target");
 
@@ -65,7 +82,7 @@ export default function GraphConcluida() {
           id: `M:${e.id()}`,
           source,
           target,
-        }
+        },
       });
     });
 
@@ -74,6 +91,43 @@ export default function GraphConcluida() {
       elements: [...nodes, ...edges],
     });
   }
+
+  function getHint(cy) {
+    if (!cy) return [];
+
+    const sugestoes = [];
+
+    cy.nodes().forEach((n) => {
+      if (n.data("isHeader")) return;
+
+      const concluida = n.data("concluida");
+      const disponivel = n.data("disponivel");
+
+      if (concluida) return;
+      if (!disponivel) return;
+
+      const rank = Number.isFinite(n.data("rank")) ? n.data("rank") : 0;
+
+      sugestoes.push({
+        id: n.id(),
+        nome: n.data("nome"),
+        rank,
+      });
+    });
+
+    sugestoes.sort((a, b) => b.rank - a.rank);
+
+    return sugestoes;
+  }
+  /** usse efect pra adicionar a sugestao */
+  useEffect(() => {
+    if (!cyInstance.current) return;
+
+    const sugestoesGeradas = getHint(cyInstance.current);
+    setSugestoes(sugestoesGeradas);
+
+    console.log("sugestao nova", sugestoesGeradas);
+  }, [graphVersion, filtros]);
 
   useEffect(() => {
     if (!cyInstance.current) return;
@@ -97,7 +151,7 @@ export default function GraphConcluida() {
         const pr = cy.elements().pageRank({ dampingFactor: 0.8 });
 
         let max = 0;
-        cy.nodes().forEach(n => {
+        cy.nodes().forEach((n) => {
           const r = pr.rank(n);
           n.data("rank", r);
           if (r > max) max = r;
@@ -110,7 +164,7 @@ export default function GraphConcluida() {
       case "desbloqueio": {
         let maxDeg = 0;
 
-        cyM.nodes().forEach(n => {
+        cyM.nodes().forEach((n) => {
           const d = n.outdegree();
           setRankOnView(n.id(), d);
           if (d > maxDeg) maxDeg = d;
@@ -128,7 +182,7 @@ export default function GraphConcluida() {
 
         let maxBC = 0;
 
-        cyM.nodes().forEach(n => {
+        cyM.nodes().forEach((n) => {
           let val = bc.betweenness(n);
           if (!Number.isFinite(val) || Number.isNaN(val)) val = 0;
 
@@ -142,13 +196,13 @@ export default function GraphConcluida() {
 
       case "nucleo": {
         const ccn = cyM.elements().closenessCentralityNormalized({
-          directed: false,  // mais estável/interpretável em currículo
+          directed: false, // mais estável/interpretável em currículo
           harmonic: true,
         });
 
         let maxCC = 0;
 
-        cyM.nodes().forEach(n => {
+        cyM.nodes().forEach((n) => {
           let val = ccn.closeness(n);
           if (!Number.isFinite(val) || Number.isNaN(val)) val = 0;
 
@@ -169,7 +223,7 @@ export default function GraphConcluida() {
     let best = null;
     let bestRank = -Infinity;
 
-    cy.nodes().forEach(n => {
+    cy.nodes().forEach((n) => {
       if (n.data("isHeader")) return;
       if (n.hidden && n.hidden()) return;
       if (n.hasClass("concluida") || n.data("concluida") === true) return;
@@ -193,7 +247,7 @@ export default function GraphConcluida() {
 
     if (typeof cy.destroyed === "function" && cy.destroyed()) return;
 
-    const done = cy.nodes(".concluida").filter(n => !n.data("isHeader"));
+    const done = cy.nodes(".concluida").filter((n) => !n.data("isHeader"));
     const doneEdges = done.connectedEdges();
 
     if (ocultarConcluidasNoGrafo) {
@@ -213,22 +267,28 @@ export default function GraphConcluida() {
     async function inicializarGrafo() {
       try {
         const elementosBrutos = curriculo[0].curriculo[0].matriz_curricular;
-        const elementos = elementosBrutos.filter(disc => disc.competencia !== "OPTATIVA");
-        const historicoPronto = (history?.codigos?.length ?? 0) > 0 || (history?.nomes?.length ?? 0) > 0;
+        const elementos = elementosBrutos.filter(
+          (disc) => disc.competencia !== "OPTATIVA",
+        );
+        const historicoPronto =
+          (history?.codigos?.length ?? 0) > 0 ||
+          (history?.nomes?.length ?? 0) > 0;
 
-        const matrizIds = new Set(elementos.map(e => String(e.codigo).trim()));
+        const matrizIds = new Set(
+          elementos.map((e) => String(e.codigo).trim()),
+        );
         const prereqMap = new Map(
-          elementos.map(e => [
+          elementos.map((e) => [
             String(e.codigo).trim(),
-            (e.pre_requisitos || []).map(pr => String(pr).trim())
-          ])
+            (e.pre_requisitos || []).map((pr) => String(pr).trim()),
+          ]),
         );
 
         const codigosHistorico = new Set(
-          (history?.codigos || []).map(c => c.trim().toUpperCase())
+          (history?.codigos || []).map((c) => c.trim().toUpperCase()),
         );
         const nomesHistorico = new Set(
-          (history?.nomes || []).map(n => normalizar(n))
+          (history?.nomes || []).map((n) => normalizar(n)),
         );
 
         console.log("curricuko", curriculo.disciplina);
@@ -236,10 +296,10 @@ export default function GraphConcluida() {
         const curriculoComStatus = elementos.map((disc) => {
           const nomeMatrizNormalizado = normalizar(disc.nome);
 
-          const concluida = historicoPronto && (
-            codigosHistorico.has(String(disc.codigo).trim().toUpperCase()) ||
-            nomesHistorico.has(nomeMatrizNormalizado)
-          );
+          const concluida =
+            historicoPronto &&
+            (codigosHistorico.has(String(disc.codigo).trim().toUpperCase()) ||
+              nomesHistorico.has(nomeMatrizNormalizado));
 
           return { ...disc, concluida };
         });
@@ -247,18 +307,22 @@ export default function GraphConcluida() {
         console.log("mapeia hisoricoo", Array.from(codigosHistorico));
 
         const codigosConcluidos = new Set(
-          curriculoComStatus.filter(d => d.concluida).map(d => String(d.codigo).trim())
+          curriculoComStatus
+            .filter((d) => d.concluida)
+            .map((d) => String(d.codigo).trim()),
         );
 
         const nodes = curriculoComStatus.map((disc) => {
           const id = String(disc.codigo).trim();
 
-          const prereqs = (prereqMap.get(id) || []).filter(pr => matrizIds.has(pr));
+          const prereqs = (prereqMap.get(id) || []).filter((pr) =>
+            matrizIds.has(pr),
+          );
 
           const disponivel =
             historicoPronto &&
             !disc.concluida &&
-            prereqs.every(pr => codigosConcluidos.has(pr));
+            prereqs.every((pr) => codigosConcluidos.has(pr));
 
           return {
             data: {
@@ -271,23 +335,22 @@ export default function GraphConcluida() {
               prereqs,
               oldLabel: id,
             },
-            classes: `${disc.concluida ? "concluida" : ""} ${disponivel ? "disponivel" : ""}`.trim(),
+            classes:
+              `${disc.concluida ? "concluida" : ""} ${disponivel ? "disponivel" : ""}`.trim(),
           };
         });
         const filterSubjectCompleted = curriculoComStatus.filter(
-          (f) => f.concluida
+          (f) => f.concluida,
         );
-        console.log(
-          filterSubjectCompleted
-        );
+        console.log(filterSubjectCompleted);
         setSubjectCompleted(filterSubjectCompleted);
 
         const filterSubjectPendant = curriculoComStatus.filter(
-          (f) => f.concluida === false
+          (f) => f.concluida === false,
         );
         setPendant(filterSubjectPendant);
         console.log("nodes mapeados com concluido", nodes);
-        const nodeIds = new Set(nodes.map(n => n.data.id));
+        const nodeIds = new Set(nodes.map((n) => n.data.id));
         const edges = [];
 
         elementos.forEach((element) => {
@@ -304,12 +367,12 @@ export default function GraphConcluida() {
         });
 
         const periodos = Array.from(
-          new Set(nodes.map(n => Number(n.data.periodo) || 0))
+          new Set(nodes.map((n) => Number(n.data.periodo) || 0)),
         ).sort((a, b) => a - b);
 
         const headerNodes = periodos
-          .filter(p => p > 0)
-          .map(p => ({
+          .filter((p) => p > 0)
+          .map((p) => ({
             data: {
               id: `PERIODO_${p}`,
               label: `Período ${p}`,
@@ -484,7 +547,7 @@ export default function GraphConcluida() {
                 "shadow-color": "#f59e0b",
                 "shadow-offset-x": 0,
                 "shadow-offset-y": 0,
-              }
+              },
             },
           ],
         });
@@ -493,7 +556,7 @@ export default function GraphConcluida() {
         cyMetricRef.current?.destroy();
         cyMetricRef.current = buildHeadlessCyFrom(cy, true);
 
-        setGraphVersion(v => v + 1);
+        setGraphVersion((v) => v + 1);
         const contagemDeLinhas = {};
         const headerY = 0;
         const baseY = 45;
@@ -554,7 +617,6 @@ export default function GraphConcluida() {
 
           setModalAberto(true);
         });
-
       } catch (e) {
         console.error(e);
         if (cyRef.current) {
@@ -584,6 +646,13 @@ export default function GraphConcluida() {
           onCloseModal={onCloseModal}
         />
       )}
+      {openModalSugestoes && (
+        <ModalSugestoes
+          isOpen={openModalSugestoes}
+          onClose={onCloseSugestoesModal}
+          sugestoes={sugestoes}
+        />
+      )}
 
       {/* DOCK ÚNICO: Painéis + Legenda (responsivo) */}
       <div className="fixed bottom-4 left-4 right-4 z-[90] flex flex-col sm:flex-row gap-3 sm:items-end sm:justify-between pointer-events-none">
@@ -595,7 +664,9 @@ export default function GraphConcluida() {
               className="bg-slate-800 text-white px-4 py-2 rounded shadow-lg hover:bg-slate-900 transition-colors text-sm font-bold"
               onClick={toggleOcultarConcluidasNoGrafo}
             >
-              {ocultarConcluidasNoGrafo ? "Mostrar Concluídas no Grafo" : "Ocultar Concluídas no Grafo"}
+              {ocultarConcluidasNoGrafo
+                ? "Mostrar Concluídas no Grafo"
+                : "Ocultar Concluídas no Grafo"}
             </button>
 
             <button
@@ -646,68 +717,99 @@ export default function GraphConcluida() {
         </div>
 
         {/* Legenda (direita no desktop / abaixo no mobile) */}
-        <div className="pointer-events-auto self-end sm:self-auto flex flex-col gap-2">
-          {/* Intensidade */}
-          <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
-            <div className="font-semibold mb-1">Legenda – Intensidade</div>
 
-            <div className="text-[11px] text-gray-600 mb-2">
-              Filtro:{" "}
-              <span className="font-medium text-gray-800">
-                {filtros === "padrao" ? "Padrão" :
-                  filtros === "gargalos" ? "Influência (PageRank)" :
-                    filtros === "desbloqueio" ? "Conectividade (Grau)" :
-                      filtros === "pontes" ? "Intermediação (Betweenness)" :
-                        filtros === "nucleo" ? "Proximidade (Closeness)" :
-                          filtros}
-              </span>
-            </div>
+        <div className={`pointer-events-auto transition-all duration-150 ease-in-out flex flex-col items-end`}>
+          <button className="z-10 text-white border rounded  p-1 mb-4 text-sm" onClick={onCloseLegend}>{hideLegend ? "Esconder Legenda" : "Mostrar Legenda"}</button>
+          {hideLegend ? (
+            <div className="pointer-events-auto self-end sm:self-auto flex flex-col gap-2">
+              {/* Intensidade */}
+              <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
+                <div className="font-semibold mb-1">Legenda – Intensidade</div>
 
-            <div className="flex items-center justify-between mb-1 text-[11px] text-gray-600">
-              <span>Baixa</span>
-              <span>Alta</span>
-            </div>
+                <div className="text-[11px] text-gray-600 mb-2">
+                  Filtro:{" "}
+                  <span className="font-medium text-gray-800">
+                    {filtros === "padrao"
+                      ? "Padrão"
+                      : filtros === "gargalos"
+                        ? "Influência (PageRank)"
+                        : filtros === "desbloqueio"
+                          ? "Conectividade (Grau)"
+                          : filtros === "pontes"
+                            ? "Intermediação (Betweenness)"
+                            : filtros === "nucleo"
+                              ? "Proximidade (Closeness)"
+                              : filtros}
+                  </span>
+                </div>
 
-            <div
-              className="h-3 rounded"
-              style={{
-                background:
-                  "linear-gradient(90deg, hsl(220 90% 55%), hsl(160 90% 55%), hsl(100 90% 55%), hsl(40 90% 55%), hsl(0 90% 55%))",
-              }}
-            />
+                <div className="flex items-center justify-between mb-1 text-[11px] text-gray-600">
+                  <span>Baixa</span>
+                  <span>Alta</span>
+                </div>
 
-            <div className="mt-2 text-[11px] leading-snug text-gray-600">
-              Quanto mais próximo do vermelho, maior o valor da métrica selecionada.
-            </div>
-          </div>
+                <div
+                  className="h-3 rounded"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, hsl(220 90% 55%), hsl(160 90% 55%), hsl(100 90% 55%), hsl(40 90% 55%), hsl(0 90% 55%))",
+                  }}
+                />
 
-          {/* Status */}
-          <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
-            <div className="font-semibold mb-2">Legenda – Status</div>
-
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-8 h-4 rounded-md border border-black/10" style={{ background: "#22c55e" }} />
-                <span className="text-[11px] text-gray-700">Concluída</span>
+                <div className="mt-2 text-[11px] leading-snug text-gray-600">
+                  Quanto mais próximo do vermelho, maior o valor da métrica
+                  selecionada.
+                </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-8 h-4 rounded-md border-2" style={{ background: "#2563eb", borderColor: "#00e5ff" }} />
-                <span className="text-[11px] text-gray-700">Disponível (pré-requisitos OK)</span>
-              </div>
+              {/* Status */}
+              <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
+                <div className="font-semibold mb-2">Legenda – Status</div>
 
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-8 h-4 rounded-md border border-black/15" style={{ background: "#2563eb" }} />
-                <span className="text-[11px] text-gray-700">Pendente (faltam pré-requisitos)</span>
-              </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-block w-8 h-4 rounded-md border border-black/10"
+                      style={{ background: "#22c55e" }}
+                    />
+                    <span className="text-[11px] text-gray-700">Concluída</span>
+                  </div>
 
-              <div className="flex items-center gap-2">
-                <span className="relative inline-block w-8 h-4 rounded-md border-2" style={{ background: "#2563eb", borderColor: "#f59e0b" }}>
-                </span>
-                <span className="text-[11px] text-gray-700">Recomendada (maior rank disponível)</span>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-block w-8 h-4 rounded-md border-2"
+                      style={{ background: "#2563eb", borderColor: "#00e5ff" }}
+                    />
+                    <span className="text-[11px] text-gray-700">
+                      Disponível (pré-requisitos OK)
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-block w-8 h-4 rounded-md border border-black/15"
+                      style={{ background: "#2563eb" }}
+                    />
+                    <span className="text-[11px] text-gray-700">
+                      Pendente (faltam pré-requisitos)
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="relative inline-block w-8 h-4 rounded-md border-2"
+                      style={{ background: "#2563eb", borderColor: "#f59e0b" }}
+                    ></span>
+                    <span className="text-[11px] text-gray-700">
+                      Recomendada (maior rank disponível)
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
