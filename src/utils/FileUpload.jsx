@@ -33,7 +33,40 @@ export default function UploadCurriculo() {
       setLoading(false);
     }
   }
+async function handleFileChange(e) {
+    try {
+      // const res = await fetch(url, { method: "POST", body: formData });
+      // const text = await res.text();
+      // console.log("raw response:", text);
 
+
+
+
+
+      // const data = JSON.parse(text);
+      const resp = await fetch(`${import.meta.env.BASE_URL}matriz${e}.json`); 
+      if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
+
+
+      const data = await resp.json();
+      setCurriculo(data);
+
+      const grouped = data.reduce((acc, disc) => {
+        if (!acc[disc.periodo]) acc[disc.periodo] = [];
+        acc[disc.periodo].push(disc);
+        return acc;
+      }, {});
+
+      setPorPeriodo(grouped);
+      console.log("porPeriodo:", grouped);
+    } catch (err) {
+      console.error(err);
+      toast("Erro ao carregar grade curricular",{ position:center})
+      alert("Erro ao carregar grade curricular");
+    } finally {
+      setLoading(false);
+    }
+  }
   // async function handleUpload() {
   //   if (!file) {
   //     alert("Selecione um PDF");
