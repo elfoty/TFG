@@ -17,8 +17,8 @@ export default function Filtros() {
           <select
             value={valorFiltro} // Garante que é uma string
             onChange={(e) => setFiltros(e.target.value)}
-            class="w-half cursor-pointer rounded bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 shadow-lg flex items-center gap-2 font-medium focus:shadow-md appearance-none ">
-            <option value="padrao">Selecione um filtro</option>
+            class="transition duration-75 outline-0 w-half cursor-pointer rounded bg-[#111827] hover:bg-[#11192b] text-white px-6 py-3  flex items-center gap-2 font-medium border-none appearance-none ">
+            <option value="padrao" >Selecione um filtro</option>
             <option value="gargalos">Disciplinas mais influentes (PageRank)</option>
             <option value="desbloqueio">Disciplinas mais conectadas (Grau)</option>
             <option value="pontes">Disciplinas que ligam trilhas (Betweenness)</option>

@@ -3,7 +3,7 @@ import { useCurriculo } from "../context/useDataContext";
 import { toast } from "sonner";
 import Loader from "../components/loader";
 
-import { Upload } from 'lucide-react';
+import { Trash, Upload } from "lucide-react";
 export default function Historico() {
   const [historyPDF, setHistoryPDF] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ export default function Historico() {
 
   async function uploadHistory() {
     if (!historyPDF) {
-      toast.warning("Selecione um PDF", {position:"top-center"})
+      toast.warning("Selecione um PDF", { position: "top-center" });
       return;
     }
 
@@ -42,30 +42,46 @@ export default function Historico() {
 
       // O Python vai retornar: { codigos: [...], nomes: [...] }
       const dadosProcessados = await res.json();
-      
+
       console.log("Python respondeu:", dadosProcessados);
 
       if (dadosProcessados.codigos.length === 0) {
-        toast.warning("O servidor processou o arquivo mas não encontrou matérias. Verifique o PDF.",{ position:"top-center"})
-       // alert("O servidor processou o arquivo mas não encontrou matérias. Verifique o PDF.");
+        toast.warning(
+          "O servidor processou o arquivo mas não encontrou matérias. Verifique o PDF.",
+          { position: "top-center" },
+        );
+        // alert("O servidor processou o arquivo mas não encontrou matérias. Verifique o PDF.");
       }
 
       setHistory(dadosProcessados);
-
     } catch (err) {
       console.error(err);
-      toast.warning("Erro ao conectar com o microserviço Python. Verifique se ele está rodando.",{position:"top-center"});
+      toast.warning(
+        "Erro ao conectar com o microserviço Python. Verifique se ele está rodando.",
+        { position: "top-center" },
+      );
       //alert("Erro ao conectar com o microserviço Python. Verifique se ele está rodando.");
     } finally {
       setLoading(false);
     }
   }
 
+  function removeHistory() {
+    setHistory([]);
+    setHistoryPDF([])
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+    toast.success("Histórico removido com sucesso!", {
+      position: "top-center",
+    });
+    console.log("removi historico");
+  }
   // Verifica se o histórico tem dados (array ou objeto)
-  const temHistorico = history && (
-    (Array.isArray(history) && history.length > 0) || 
-    (history.codigos && history.codigos.length > 0)
-  );
+  const temHistorico =
+    history &&
+    ((Array.isArray(history) && history.length > 0) ||
+      (history.codigos && history.codigos.length > 0));
 
   return (
     <div className="z-50">
@@ -82,7 +98,7 @@ export default function Historico() {
             <button
               type="button"
               onClick={() => fileInputRef.current.click()}
-              className={`${history.length === 0 ? "bg-green-500/80" : "bg-red-500"} cursor-pointer bg-blue-600 hover:bg-blue-700
+              className={`${history.length === 0 ? "bg-white/20 text-[#111827]" : "bg-red-500"} cursor-pointer bg-blue-600 hover:bg-blue-700
                  text-white px-6 py-3 rounded-l-lg shadow-lg transition-all font-medium`}
             >
               {historyPDF ? "Arquivo pronto" : "Selecionar Histórico"}
@@ -91,11 +107,16 @@ export default function Historico() {
               type="button"
               onClick={uploadHistory}
               disabled={loading}
-              className=
-            {`${historyPDF ? "bg-green-600 animate-pulse " : "bg-yellow-300/80"  } bg-green-800 rounded-r-lg hover:bg-blue-900
-               text-white px-5 py-3 z-40 disabled:opacity-50 cursor-pointer`}
+              className={`${historyPDF ? "bg-[#1E293B] animate-pulse " : "bg-[#F8FAFC]"} bg-black/20 rounded-r-lg hover:bg-[#2a3341]
+               text-white px-5 py-3 z-40 disabled:opacity-50 cursor-pointer w-30`}
             >
-              {loading ? <Loader size="sm"/> : <span className="flex gap-2 text-center items-center"><Upload size={20}/> Enviar </span>}
+              {loading ? (
+                <Loader size="sm" />
+              ) : (
+                <span className="flex gap-2 text-center items-center">
+                  <Upload size={20} /> Enviar{" "}
+                </span>
+              )}
             </button>
           </div>
           <div className="absolute top-12 left-0 right-0 text-white text-[10px] italic truncate max-w-50 text-center mx-auto">
@@ -103,8 +124,17 @@ export default function Historico() {
           </div>
         </div>
       ) : (
-        <div className="text-white bg-green-600/20 px-4 py-2 rounded-lg border border-green-500 font-medium">
-           Histórico processado!
+        <div className="flex items-center gap-2 bg-green-600/20 rounded-lg px-2 py-2 w-60">
+          <div className="text-white flex-1 px-2 font-medium">
+            Histórico processado!
+          </div>
+
+          <button
+            onClick={removeHistory}
+            className="bg-red-300 hover:bg-red-400 p-2 rounded transition cursor-pointer"
+          >
+            <Trash size={20} color="#0F172A" />
+          </button>
         </div>
       )}
     </div>

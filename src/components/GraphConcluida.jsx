@@ -33,7 +33,7 @@ export default function GraphConcluida({
   const [showSubjectCompleted, setShowSubjectCompleted] = useState(false);
   const [showSubjectPendant, setShowSubjecPendant] = useState(false);
   const [sugestoes, setSugestoes] = useState([]);
-  const [hideLegend, setHideLegend] = useState(false);
+  const [hideLegend, setHideLegend] = useState(true);
 
   function onCloseModal() {
     setModalAberto(false);
@@ -41,7 +41,7 @@ export default function GraphConcluida({
   }
   function onCloseLegend() {
     setHideLegend(!hideLegend);
-    console.log(" cliqui em esconde legenda")
+    console.log(" cliqui em esconde legenda");
   }
   function onCloseSugestoesModal() {
     setOpenModalSugestoes(false);
@@ -111,6 +111,7 @@ export default function GraphConcluida({
       sugestoes.push({
         id: n.id(),
         nome: n.data("nome"),
+        periodo: n.data("periodo"),
         rank,
       });
     });
@@ -474,7 +475,7 @@ export default function GraphConcluida({
               style: {
                 "background-color": "#22c55e", // green-500
                 color: "#052e16",
-                "font-weight": "700",
+                //   "font-weight": "700",
                 "border-width": 0,
               },
             },
@@ -513,7 +514,7 @@ export default function GraphConcluida({
                 "background-color": "rgba(255,255,255,0.92)",
                 color: "#0f172a",
                 "font-size": 14,
-                "font-weight": "700",
+                //      "font-weight": "700",
                 width: 200,
                 height: 32,
                 shape: "round-rectangle",
@@ -640,7 +641,8 @@ export default function GraphConcluida({
   return (
     <div className="relative w-full h-full">
       <div id="cy" ref={cyRef} />
-      {modalAberto && (
+     
+           {modalAberto && (
         <ModalSubjects
           disciplina={disciplinaSelecionada}
           onCloseModal={onCloseModal}
@@ -655,7 +657,7 @@ export default function GraphConcluida({
       )}
 
       {/* DOCK ÚNICO: Painéis + Legenda (responsivo) */}
-      <div className="fixed bottom-4 left-4 right-4 z-[90] flex flex-col sm:flex-row gap-3 sm:items-end sm:justify-between pointer-events-none">
+      <div className="fixed bottom-4 left-4 right-4 z-90 flex flex-col sm:flex-row gap-3 sm:items-end sm:justify-between pointer-events-none">
         {/* Painel esquerdo (botões + listas) */}
         <div className="flex flex-col gap-2 max-w-[min(90vw,28rem)] pointer-events-auto">
           {/* Concluídas */}
@@ -718,98 +720,112 @@ export default function GraphConcluida({
 
         {/* Legenda (direita no desktop / abaixo no mobile) */}
 
-        <div className={`pointer-events-auto transition-all duration-150 ease-in-out flex flex-col items-end`}>
-          <button className="z-10 text-white border rounded  p-1 mb-4 text-sm" onClick={onCloseLegend}>{hideLegend ? "Esconder Legenda" : "Mostrar Legenda"}</button>
-          {hideLegend ? (
-            <div className="pointer-events-auto self-end sm:self-auto flex flex-col gap-2">
-              {/* Intensidade */}
-              <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
-                <div className="font-semibold mb-1">Legenda – Intensidade</div>
+        <div
+          className={`pointer-events-auto transition-all duration-150 ease-in-out flex items-end justify-end flex-col-reverse `}
+        >
+          <button
+            className="z-10 text-[#111827] bg-white rounded  p-1 mb-4 text-sm w-36 hover:bg-[#181f31] hover:text-white hover:border"
+            onClick={onCloseLegend}
+          >
+            {hideLegend ? "Mostrar Legenda" : "Esconder Legenda"}
+          </button>
 
-                <div className="text-[11px] text-gray-600 mb-2">
-                  Filtro:{" "}
-                  <span className="font-medium text-gray-800">
-                    {filtros === "padrao"
-                      ? "Padrão"
-                      : filtros === "gargalos"
-                        ? "Influência (PageRank)"
-                        : filtros === "desbloqueio"
-                          ? "Conectividade (Grau)"
-                          : filtros === "pontes"
-                            ? "Intermediação (Betweenness)"
-                            : filtros === "nucleo"
-                              ? "Proximidade (Closeness)"
-                              : filtros}
+          {/**aq */}
+          <div
+            className={` transition-all duration-300 overflow-hidden
+    ${hideLegend ? "opacity-0 w-0" : "opacity-100 w-full"}
+    pointer-events-auto
+    self-end
+    sm:self-auto
+    flex flex-col gap-2`}
+          >
+            {/* Intensidade */}
+            <div
+              className={`} bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72`}
+            >
+              <div className="font-semibold mb-1">Legenda – Intensidade</div>
+
+              <div className="text-[11px] text-gray-600 mb-2">
+                Filtro:{" "}
+                <span className="font-medium text-gray-800">
+                  {filtros === "padrao"
+                    ? "Padrão"
+                    : filtros === "gargalos"
+                      ? "Influência (PageRank)"
+                      : filtros === "desbloqueio"
+                        ? "Conectividade (Grau)"
+                        : filtros === "pontes"
+                          ? "Intermediação (Betweenness)"
+                          : filtros === "nucleo"
+                            ? "Proximidade (Closeness)"
+                            : filtros}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between mb-1 text-[11px] text-gray-600">
+                <span>Baixa</span>
+                <span>Alta</span>
+              </div>
+
+              <div
+                className="h-3 rounded"
+                style={{
+                  background:
+                    "linear-gradient(90deg, hsl(220 90% 55%), hsl(160 90% 55%), hsl(100 90% 55%), hsl(40 90% 55%), hsl(0 90% 55%))",
+                }}
+              />
+
+              <div className="mt-2 text-[11px] leading-snug text-gray-600">
+                Quanto mais próximo do vermelho, maior o valor da métrica
+                selecionada.
+              </div>
+            </div>
+
+            {/* Status */}
+            <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
+              <div className="font-semibold mb-2">Legenda – Status</div>
+
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="inline-block w-8 h-4 rounded-md border border-black/10"
+                    style={{ background: "#22c55e" }}
+                  />
+                  <span className="text-[11px] text-gray-700">Concluída</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span
+                    className="inline-block w-8 h-4 rounded-md border-2"
+                    style={{ background: "#2563eb", borderColor: "#00e5ff" }}
+                  />
+                  <span className="text-[11px] text-gray-700">
+                    Disponível (pré-requisitos OK)
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between mb-1 text-[11px] text-gray-600">
-                  <span>Baixa</span>
-                  <span>Alta</span>
+                <div className="flex items-center gap-2">
+                  <span
+                    className="inline-block w-8 h-4 rounded-md border border-black/15"
+                    style={{ background: "#2563eb" }}
+                  />
+                  <span className="text-[11px] text-gray-700">
+                    Pendente (faltam pré-requisitos)
+                  </span>
                 </div>
 
-                <div
-                  className="h-3 rounded"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, hsl(220 90% 55%), hsl(160 90% 55%), hsl(100 90% 55%), hsl(40 90% 55%), hsl(0 90% 55%))",
-                  }}
-                />
-
-                <div className="mt-2 text-[11px] leading-snug text-gray-600">
-                  Quanto mais próximo do vermelho, maior o valor da métrica
-                  selecionada.
-                </div>
-              </div>
-
-              {/* Status */}
-              <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
-                <div className="font-semibold mb-2">Legenda – Status</div>
-
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="inline-block w-8 h-4 rounded-md border border-black/10"
-                      style={{ background: "#22c55e" }}
-                    />
-                    <span className="text-[11px] text-gray-700">Concluída</span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="inline-block w-8 h-4 rounded-md border-2"
-                      style={{ background: "#2563eb", borderColor: "#00e5ff" }}
-                    />
-                    <span className="text-[11px] text-gray-700">
-                      Disponível (pré-requisitos OK)
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="inline-block w-8 h-4 rounded-md border border-black/15"
-                      style={{ background: "#2563eb" }}
-                    />
-                    <span className="text-[11px] text-gray-700">
-                      Pendente (faltam pré-requisitos)
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="relative inline-block w-8 h-4 rounded-md border-2"
-                      style={{ background: "#2563eb", borderColor: "#f59e0b" }}
-                    ></span>
-                    <span className="text-[11px] text-gray-700">
-                      Recomendada (maior rank disponível)
-                    </span>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span
+                    className="relative inline-block w-8 h-4 rounded-md border-2"
+                    style={{ background: "#2563eb", borderColor: "#f59e0b" }}
+                  ></span>
+                  <span className="text-[11px] text-gray-700">
+                    Recomendada (maior rank disponível)
+                  </span>
                 </div>
               </div>
             </div>
-          ) : (
-            <></>
-          )}
+          </div>
         </div>
       </div>
     </div>

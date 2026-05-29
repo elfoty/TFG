@@ -19,13 +19,13 @@ export default function Principal() {
   }
   return (
     <div className="w-full">
-      <header className=" py-4 px-4 z-100 bg-[#197fff]/90 backdrop-opacity-10">
+      <header className=" py-4 px-4 z-100 bg-[#0F172A]/90 backdrop-opacity-10 shadow-2xs ">
         <div className="max-w-7xl mx-auto flex flex-wrap gap-4 justify-between items-center">
           <h1 className="text-white font-bold text-xl hidden md:block ">
             Visualização Interativa de Grade Curricular com Grafos
           </h1>
 
-          <div className="bg-red-500 flex gap-3 flex-wrap justify-center items-center ">
+          <div className="flex gap-3 flex-wrap justify-center items-center ">
             <FileUpload curriculo={curriculo} />
             {curriculo.length > 0 && <Historico history={history} />}
             {console.log(
@@ -39,12 +39,16 @@ export default function Principal() {
             {curriculo.length > 0 && (
               <button
                 to="/TFG/sugestao"
-                className="font-bold border p-2 rounded cursor-pointer"
+                className="font-bold  p-2 rounded cursor-pointer bg-white hover:bg-[#e8eaec]"
                 onClick={handleOpenModalSugestoes}
               >
                 Veja Sugestoes de matérias
               </button>
             )}
+
+            <div className="p-2  border  rounded border-red-500 text-white animate-pulse">
+              <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScllQStr3U7YPw6F9zc-yaCVW7GvrWwi_hY3MiKxnetbx8pfQ/viewform">Link Forms</a>
+            </div>
           </div>
         </div>
       </header>
