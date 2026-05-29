@@ -1,42 +1,34 @@
-import React, { useState, useRef } from "react"; import Graph from "../components/Graph";
-import GraphConcluida from "../components/GraphConcluida";
+import React, { useState } from "react";
 import { useCurriculo } from "../context/useDataContext";
 import "../App.css";
 import { toast } from "sonner";
 
 export default function UploadCurriculo() {
-  const fileInputRef = useRef(null);
-  const [file, setFile] = useState(null);
-  const [porPeriodo, setPorPeriodo] = useState({});
+  const [selectedGrade, setSelectedGrade] = useState("matriz2022.json");
   const [loading, setLoading] = useState(false);
-  const [fileName, setFileName] = useState("Nenhum arquivo selecionado");
 
-  const { curriculo, setCurriculo } = useCurriculo();
+  const { curriculo, setCurriculo, setHistory } = useCurriculo();
 
-  async function handleFileChange(e) {
+  const gradeOptions = [
+    { value: "matriz2015.json", label: "Grade 2015" },
+    { value: "matriz2022.json", label: "Grade 2022" },
+    { value: "matriz2026.json", label: "Grade 2026" },
+    { value: "matriz.json", label: "Grade Geral" },
+  ];
+
+  async function loadGrade() {
+    setLoading(true);
+
     try {
-      // const res = await fetch(url, { method: "POST", body: formData });
-      // const text = await res.text();
-      // console.log("raw response:", text);
-
-      // const data = JSON.parse(text);
-      const resp = await fetch(`${import.meta.env.BASE_URL}matriz${e}.json`); if (!resp.ok) throw new Error("Erro ao carregar matriz.json");
+      const resp = await fetch(`/${selectedGrade}`);
+      if (!resp.ok) throw new Error(`Erro ao carregar ${selectedGrade}`);
 
       const data = await resp.json();
       setCurriculo(data);
-
-      const grouped = data.reduce((acc, disc) => {
-        if (!acc[disc.periodo]) acc[disc.periodo] = [];
-        acc[disc.periodo].push(disc);
-        return acc;
-      }, {});
-
-      setPorPeriodo(grouped);
-      console.log("porPeriodo:", grouped);
+      setHistory([]);
     } catch (err) {
       console.error(err);
-      toast("Erro ao carregar grade curricular",{ position:center})
-      alert("Erro ao carregar grade curricular");
+      toast.error("Erro ao carregar grade curricular",{ position:center})
     } finally {
       setLoading(false);
     }
@@ -132,20 +124,4 @@ export default function UploadCurriculo() {
 
     </div>
   );
-}
-
-{
-  /* Exemplo de renderização por período
-      {Object.keys(porPeriodo).map((periodo) => (
-        <div key={periodo} className="mb-6">
-          <h2 className="text-xl font-semibold mb-2">Período {periodo}</h2>
-          <ul className="list-disc pl-5">
-            {porPeriodo[periodo].map((disc) => (
-              <li key={disc.codigo}>
-                {disc.codigo} - {disc.nome} ({disc.carga_horaria}h)
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))} */
 }
