@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { useCurriculo } from "../context/useDataContext";
 import { toast } from "sonner";
 import Loader from "../components/loader";
+import { parseHistorico } from "./parseHistorico";
+
 
 import { Trash, Upload } from "lucide-react";
 export default function Historico() {
@@ -31,6 +33,30 @@ export default function Historico() {
     // URL do seu microserviço Python local
     // const urlMicroservico = "http://127.0.0.1:8000/parse-historico";
     const urlMicroservico = "https://tfg-db7b.onrender.com/parse-historico";
+
+    /*try {
+      const dadosProcessados = await parseHistorico(historyPDF);
+
+      console.log("Histórico processado no navegador:", dadosProcessados);
+
+      if (!dadosProcessados.codigos || dadosProcessados.codigos.length === 0) {
+        toast.warning(
+          "O arquivo foi processado, mas não foram encontradas matérias. Verifique se o PDF é um histórico válido.",
+          { position: "top-center" }
+        );
+      }
+
+      setHistory(dadosProcessados);
+    } catch (err) {
+      console.error(err);
+
+      toast.warning(
+        "Erro ao processar o PDF. Verifique se o arquivo é um histórico válido.",
+        { position: "top-center" }
+      );
+    } finally {
+      setLoading(false);
+    }*/
 
     try {
       const res = await fetch(urlMicroservico, {
