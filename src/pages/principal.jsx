@@ -27,7 +27,7 @@ export default function Principal() {
     <div className=" w-full bg-[#020305]">
       <div className="container">
         <header className="header-container">
-          <Link to="/">
+          <Link to="/TFG">
             <div className="logo">AjudaEu</div>
           </Link>
 
