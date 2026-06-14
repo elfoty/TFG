@@ -248,3 +248,6 @@ async def parse_historico(file: UploadFile = File(...)):
         "nomes": sorted(nomes_encontrados),
         "debug_rows": debug_rows[:200]  # deixa mais alto para depurar melhor
     }
+@app.get("/")
+def home():
+    return {"status": "online"}
