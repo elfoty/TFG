@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/TFG',
+  base: '/TFG/',
   plugins: [tailwindcss(), react()],
  resolve: {
     alias: {

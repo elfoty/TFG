@@ -6,7 +6,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Principal />} />
+        <Route path="/TFG" element={<Principal />} />
       </Routes>
     </BrowserRouter>
   );
