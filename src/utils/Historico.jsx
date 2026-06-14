@@ -29,7 +29,8 @@ export default function Historico() {
     formData.append("file", historyPDF); // O Python espera um campo chamado 'file'
 
     // URL do seu microserviço Python local
-    const urlMicroservico = "http://127.0.0.1:8000/parse-historico";
+    // const urlMicroservico = "http://127.0.0.1:8000/parse-historico";
+    const urlMicroservico = "https://tfg-db7b.onrender.com/parse-historico";
 
     try {
       const res = await fetch(urlMicroservico, {
