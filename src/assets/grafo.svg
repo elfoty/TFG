@@ -1,0 +1,17 @@
+<svg width="732" height="280" viewBox="0 0 732 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="primeiro" d="M731.5 244.5V279.5H605.5V244.5H731.5Z" stroke="#38FF1D"/>
+<path class="primeiro" d="M126.5 88.5V123.5H0.5V88.5H126.5Z" stroke="#38FF1D"/>
+<path class="primeiro"  d="M126.5 175.5V210.5H0.5V175.5H126.5Z" stroke="#38FF1D"/>
+<path  class="segundo" d="M126.5 0.5V35.5H0.5V0.5H126.5Z" stroke="#38FF1D"/>
+<path class="segundo" d="M521.5 157.5V192.5H395.5V157.5H521.5Z" stroke="#38FF1D"/>
+<path class="terceiro"  d="M521.5 244.5V279.5H395.5V244.5H521.5Z" stroke="#38FF1D"/>
+<path class="terceiro" d="M521.5 69.5V104.5H395.5V69.5H521.5Z" stroke="#38FF1D"/>
+<path class="terceiro" d="M329.5 113.5V148.5H203.5V113.5H329.5Z" stroke="#38FF1D"/>
+<path class="quarto" d="M329.5 25.5V60.5H203.5V25.5H329.5Z" stroke="#38FF1D"/>
+<line x1="127.252" y1="105.568" x2="395.252" y2="261.568" stroke="white"/>
+<line x1="126.966" y1="192.501" x2="394.966" y2="174.501" stroke="white"/>
+<line x1="329.72" y1="130.586" x2="394.72" y2="86.5859" stroke="white"/>
+<line x1="127.156" y1="17.525" x2="203.156" y2="42.525" stroke="white"/>
+<line x1="330.285" y1="42.5889" x2="395.285" y2="87.5889" stroke="white"/>
+<line x1="522.368" y1="174.661" x2="605.368" y2="264.661" stroke="white"/>
+</svg>

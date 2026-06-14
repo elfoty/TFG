@@ -467,7 +467,7 @@ export default function GraphConcluida({
                 "background-width": "14px",
                 "background-height": "14px",
                 "background-position-x": "180px",
-                "font-size": "13px",
+                "font-size": "15px",
               },
             },
             {
@@ -582,6 +582,7 @@ export default function GraphConcluida({
         }).run();
 
         cy.on("mouseover", "node", (evt) => {
+          cy.container().style.cursor = "pointer";
           const node = evt.target;
           if (node.data("isHeader")) return;
           node.data("oldLabel", node.data("id"));
@@ -597,6 +598,7 @@ export default function GraphConcluida({
         });
 
         cy.on("mouseout", "node", (evt) => {
+          cy.container().style.cursor = "default";
           const node = evt.target;
           if (node.data("isHeader")) return;
           node.data("label", node.data("oldLabel"));
@@ -641,8 +643,8 @@ export default function GraphConcluida({
   return (
     <div className="relative w-full h-full">
       <div id="cy" ref={cyRef} />
-     
-           {modalAberto && (
+
+      {modalAberto && (
         <ModalSubjects
           disciplina={disciplinaSelecionada}
           onCloseModal={onCloseModal}

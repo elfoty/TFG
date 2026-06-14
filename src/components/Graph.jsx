@@ -98,20 +98,23 @@ export default function Graph({ curriculo }) {
         });
 
         const contagemDeLinhas = {};
-
-        cy.layout({
-          name: "preset",
-          positions: (node) => {
-            const p = node.data("periodo");
-            if (contagemDeLinhas[p] === undefined) contagemDeLinhas[p] = 0;
-            const linha = contagemDeLinhas[p]++;
-            return {
-              x: p * 230,
-              y: linha * 40,
-            };
-          },
-        }).run();
-
+        const largura = cyRef.current.clientWidth;
+        const espacamentoHorizontal = largura / (maxPeriodo + 1);
+        const layout = cy
+          .layout({
+            name: "preset",
+            positions: (node) => {
+              const p = node.data("periodo");
+              if (contagemDeLinhas[p] === undefined) contagemDeLinhas[p] = 0;
+              const linha = contagemDeLinhas[p]++;
+              return {
+                x: p * espacamentoHorizontal,
+                y: linha * 40,
+              };
+            },
+          })
+          .run();
+        cy.fit(undefined, 50); // ajusta ao tamanho do container
         cy.on("mouseover", "node", (evt) => {
           const node = evt.target;
 

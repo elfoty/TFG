@@ -13,10 +13,11 @@ export default function Historico() {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
       setHistoryPDF(selectedFile);
+      uploadHistory(selectedFile);
     }
   }
 
-  async function uploadHistory() {
+  async function uploadHistory(historyPDF) {
     if (!historyPDF) {
       toast.warning("Selecione um PDF", { position: "top-center" });
       return;
@@ -68,7 +69,7 @@ export default function Historico() {
 
   function removeHistory() {
     setHistory([]);
-    setHistoryPDF([])
+    setHistoryPDF([]);
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -83,11 +84,18 @@ export default function Historico() {
     ((Array.isArray(history) && history.length > 0) ||
       (history.codigos && history.codigos.length > 0));
 
+  const handleCropText = (text) => {
+    if (!text) return "";
+
+    if (text.length <= 20) return text;
+    return `${text.substring(0, 21)}...`;
+  };
+
   return (
-    <div className="z-50">
+    <div className=" history-container">
       {!temHistorico ? (
-        <div className="flex gap-0 items-center flex-col relative">
-          <div className="flex gap-0 items-center">
+        <>
+          <div className="">
             <input
               ref={fileInputRef}
               className="hidden"
@@ -95,36 +103,25 @@ export default function Historico() {
               accept="application/pdf"
               onChange={handleFileChange}
             />
-            <button
-              type="button"
-              onClick={() => fileInputRef.current.click()}
-              className={`${history.length === 0 ? "bg-white/20 text-[#111827]" : "bg-red-500"} cursor-pointer bg-blue-600 hover:bg-blue-700
-                 text-white px-6 py-3 rounded-l-lg shadow-lg transition-all font-medium`}
-            >
-              {historyPDF ? "Arquivo pronto" : "Selecionar Histórico"}
-            </button>
-            <button
-              type="button"
-              onClick={uploadHistory}
-              disabled={loading}
-              className={`${historyPDF ? "bg-[#1E293B] animate-pulse " : "bg-[#F8FAFC]"} bg-black/20 rounded-r-lg hover:bg-[#2a3341]
-               text-white px-5 py-3 z-40 disabled:opacity-50 cursor-pointer w-30`}
-            >
-              {loading ? (
-                <Loader size="sm" />
-              ) : (
-                <span className="flex gap-2 text-center items-center">
-                  <Upload size={20} /> Enviar{" "}
-                </span>
-              )}
-            </button>
+
+            <div className="upload-button-container">
+              <button
+                type="button"
+                onClick={() => fileInputRef.current.click()}
+                className="button"
+              >
+                {historyPDF?.name
+                  ? handleCropText(historyPDF?.name)
+                  : "Selecionar Histórico"}
+              </button>
+              <button type="button" onClick={uploadHistory} disabled={loading}>
+                {loading && <Loader size="sm" />}
+              </button>
+            </div>
           </div>
-          <div className="absolute top-12 left-0 right-0 text-white text-[10px] italic truncate max-w-50 text-center mx-auto">
-            {historyPDF?.name}
-          </div>
-        </div>
+        </>
       ) : (
-        <div className="flex items-center gap-2 bg-green-600/20 rounded-lg px-2 py-2 w-60">
+        <div className="ready-file-container">
           <div className="text-white flex-1 px-2 font-medium">
             Histórico processado!
           </div>

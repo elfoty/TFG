@@ -8,8 +8,8 @@ export default function ModalSubjects({ disciplina, onCloseModal }) {
 
   return (
     <div className=" fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
-      <div className="bg-black/70 rounded-xl p-6 w-full max-w-md shadow-lg text-white">
-        <div className="mb-6">
+      <div className="bg-[#0F172A] rounded-xl p-6 w-full max-w-md shadow-lg text-white">
+        <div className="mb-6 ">
           <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
             Disciplina
           </p>

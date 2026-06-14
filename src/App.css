@@ -1,19 +1,27 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
+  overflow-y: hidden;
 }
 
+/* From Uiverse.io by adamgiebl */
+.container {
+  background-image: url(./assets/GridLine.svg);
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 24px 62px;
+}
 
-.imagem-fundo{
+.imagem-fundo {
   position: fixed;
   inset: 0;
   z-index: -2;
-
-   background-image:
+  /* background-image:
     linear-gradient(rgba(14, 116, 144, 0.18), rgba(14, 116, 144, 0.18)),
     url('./assets/network_perfect_loop_white_bg.gif');
-
-  background-size: cover;
+  background-size: cover; */
   background-position: center;
   background-repeat: no-repeat;
 
@@ -24,15 +32,133 @@ html, body, #root {
   pointer-events: none;
 }
 
-#cy{
+.logo {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+
+#cy {
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
 }
 
-.interface-container{
+.svg-container {
+  padding-bottom: 14px;
+}
+
+.interface-container {
   position: relative;
   z-index: 50;
 }
 
+.animacao-grafo {
+  animation: 3s desenhar infinite;
+}
+@keyframes desenhar {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 305;
+  }
+}
+
+.primeiro {
+  stroke-dasharray: 322;
+  stroke-dashoffset: 322;
+  animation: desenhar 1s forwards;
+}
+
+.segundo {
+  stroke-dasharray: 322;
+  stroke-dashoffset: 322;
+  animation: desenhar 8s forwards 4s;
+}
+
+.terceiro {
+  stroke-dasharray: 322;
+  stroke-dashoffset: 322;
+  animation: desenhar 12s forwards 11s;
+}
+
+.quarto {
+  stroke-dasharray: 322;
+  stroke-dashoffset: 322;
+  animation: desenhar 16s forwards 16s;
+}
+.TESTE {
+  stroke-dasharray: 322;
+  stroke-dashoffset: 322;
+  animation: desenhar 1s forwards 2s;
+}
+
+.history-container {
+  div {
+    color: #fff;
+    font-size: 12px;
+  }
+}
+
+.header-container {
+  padding: 0px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.sugestions-button {
+  height: 48px;
+  width: 100px;
+
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.grade-container {
+  padding: 16px 0px;
+  color: #fff;
+  display: grid;
+  gap: 8px;
+  select {
+    background-color: #020305;
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 8px;
+  }
+}
+
+.button {
+  height: 42px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #fff;
+  &:hover {
+    background-color: #fff;
+    color: #020305;
+  }
+}
+
+.upload-button-container {
+  display: flex;
+  gap: 8px;
+}
+
+.ready-file-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

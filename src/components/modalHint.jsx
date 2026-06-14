@@ -23,7 +23,7 @@ export default function ModalSugestoes({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
       {/* Modal */}
-      <div className="relative w-full max-w-2xl   rounded-3xl bg-black/70 border border-white/10 shadow-2xl overflow-hidden">
+      <div className="relative w-full max-w-2xl   rounded-3xl bg-[#0F172A] border border-white/10 shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
           <div>
@@ -105,10 +105,10 @@ export default function ModalSugestoes({
         </div>
 
         {/* Footer */}
-        <div className="border-t border-white/10 px-6 py-4 flex justify-end bg-black/10">
+        <div className="border-t border-white/10 px-6 py-4 flex justify-end bg-black/10 ">
           <button
             onClick={onClose}
-            className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-xl transition-all cursor-pointer"
+            className="w-full bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-xl transition-all cursor-pointer"
           >
             Fechar
           </button>
