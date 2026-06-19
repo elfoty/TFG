@@ -13,58 +13,80 @@ const normalizar = (txt) =>
     .replace(/[^A-Z0-9]/g, "")
     .trim();
 
+function criarIndicadorDeIntensidade(node) {
+  const rank = node.data("rank");
+  const max = node.cy().data("maxRank") || 1;
+
+  const safeRank = Number.isFinite(rank) ? rank : 0;
+  const safeMax = Number.isFinite(max) && max > 0 ? max : 1;
+
+  let ratio = safeRank / safeMax;
+  ratio = Math.max(0, Math.min(1, ratio));
+
+  const ratioMin = Math.max(ratio, 0.08);
+  const hue = 220 - 220 * ratioMin;
+  const color = `hsl(${hue}, 90%, 55%)`;
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
+    <circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/>
+  </svg>`;
+
+  return `data:image/svg+xml;base64,${btoa(svg)}`;
+}
+
 export default function GraphConcluida({
   openModalSugestoes,
   setOpenModalSugestoes,
 }) {
-  const [graphVersion, setGraphVersion] = useState(0);
-  const [ocultarConcluidasNoGrafo, setOcultarConcluidasNoGrafo] =
-    useState(false);
-  const toggleOcultarConcluidasNoGrafo = () =>
-    setOcultarConcluidasNoGrafo((v) => !v);
-  const cyMetricRef = useRef(null);
   const { history, curriculo, filtros } = useCurriculo();
 
+  const cyRef = useRef(null);
+  const cyInstance = useRef(null);
+  const cyMetricRef = useRef(null);
+
+  const [graphVersion, setGraphVersion] = useState(0);
   const [disciplinaSelecionada, setDisciplinaSelecionada] = useState(null);
   const [modalAberto, setModalAberto] = useState(false);
   const [subjectCompleted, setSubjectCompleted] = useState([]);
-
   const [pendent, setPendant] = useState([]);
   const [showSubjectCompleted, setShowSubjectCompleted] = useState(false);
   const [showSubjectPendant, setShowSubjecPendant] = useState(false);
   const [sugestoes, setSugestoes] = useState([]);
   const [hideLegend, setHideLegend] = useState(true);
+  const [ocultarConcluidasNoGrafo, setOcultarConcluidasNoGrafo] =
+    useState(false);
 
   function onCloseModal() {
     setModalAberto(false);
-    console.log("cliquei", modalAberto);
   }
+
   function onCloseLegend() {
-    setHideLegend(!hideLegend);
-    console.log(" cliqui em esconde legenda");
+    setHideLegend((v) => !v);
   }
+
   function onCloseSugestoesModal() {
     setOpenModalSugestoes(false);
   }
+
   function setShowFilterCompleted() {
-    setShowSubjectCompleted(!showSubjectCompleted);
+    setShowSubjectCompleted((v) => !v);
   }
 
   function setShowFilterPendant() {
-    setShowSubjecPendant(!showSubjectPendant);
-    console.log("cliquei");
+    setShowSubjecPendant((v) => !v);
   }
 
-  const cyRef = useRef(null);
-  const cyInstance = useRef(null); // Ref para permitir que o efeito de filtros acesse o grafo
+  function toggleOcultarConcluidasNoGrafo() {
+    setOcultarConcluidasNoGrafo((v) => !v);
+  }
 
   function buildHeadlessCyFrom(cy, reverseEdges = false) {
     const nodes = cy
       .nodes()
       .filter((n) => !n.data("isHeader"))
       .map((n) => ({ data: { ...n.data() } }));
-    const nodeIds = new Set(nodes.map((n) => n.data.id));
 
+    const nodeIds = new Set(nodes.map((n) => n.data.id));
     const edges = [];
 
     cy.edges().forEach((e) => {
@@ -74,7 +96,6 @@ export default function GraphConcluida({
       const source = reverseEdges ? t : s;
       const target = reverseEdges ? s : t;
 
-      // ✅ filtro forte: só entra se ambos existem
       if (!nodeIds.has(source) || !nodeIds.has(target)) return;
 
       edges.push({
@@ -95,20 +116,16 @@ export default function GraphConcluida({
   function getHint(cy) {
     if (!cy) return [];
 
-    const sugestoes = [];
+    const sugestoesGeradas = [];
 
     cy.nodes().forEach((n) => {
       if (n.data("isHeader")) return;
-
-      const concluida = n.data("concluida");
-      const disponivel = n.data("disponivel");
-
-      if (concluida) return;
-      if (!disponivel) return;
+      if (n.data("concluida")) return;
+      if (!n.data("disponivel")) return;
 
       const rank = Number.isFinite(n.data("rank")) ? n.data("rank") : 0;
 
-      sugestoes.push({
+      sugestoesGeradas.push({
         id: n.id(),
         nome: n.data("nome"),
         periodo: n.data("periodo"),
@@ -116,29 +133,20 @@ export default function GraphConcluida({
       });
     });
 
-    sugestoes.sort((a, b) => b.rank - a.rank);
-
-    return sugestoes;
+    return sugestoesGeradas.sort((a, b) => b.rank - a.rank);
   }
-  /** usse efect pra adicionar a sugestao */
+
   useEffect(() => {
     if (!cyInstance.current) return;
-
-    const sugestoesGeradas = getHint(cyInstance.current);
-    setSugestoes(sugestoesGeradas);
-
-    console.log("sugestao nova", sugestoesGeradas);
+    setSugestoes(getHint(cyInstance.current));
   }, [graphVersion, filtros]);
 
   useEffect(() => {
-    if (!cyInstance.current) return;
     const cy = cyInstance.current;
     const cyM = cyMetricRef.current;
 
-    // ainda não inicializou o grafo
     if (!cy || !cyM) return;
 
-    // reset
     cy.nodes().removeData("rank");
     cy.data("maxRank", 0);
 
@@ -149,12 +157,14 @@ export default function GraphConcluida({
 
     switch (filtros) {
       case "gargalos": {
-        const pr = cy.elements().pageRank({ dampingFactor: 0.8 });
-
+        // A seta visual está em pré-requisito -> disciplina.
+        // Para destacar disciplinas-base pelo PageRank, o cálculo usa o grafo transposto.
+        const pr = cyM.elements().pageRank({ dampingFactor: 0.8 });
         let max = 0;
-        cy.nodes().forEach((n) => {
+
+        cyM.nodes().forEach((n) => {
           const r = pr.rank(n);
-          n.data("rank", r);
+          setRankOnView(n.id(), r);
           if (r > max) max = r;
         });
 
@@ -163,11 +173,14 @@ export default function GraphConcluida({
       }
 
       case "desbloqueio": {
+        // Com a direção pré-requisito -> disciplina, o grau de saída indica quantas disciplinas são desbloqueadas.
         let maxDeg = 0;
 
-        cyM.nodes().forEach((n) => {
+        cy.nodes().forEach((n) => {
+          if (n.data("isHeader")) return;
+
           const d = n.outdegree();
-          setRankOnView(n.id(), d);
+          n.data("rank", d);
           if (d > maxDeg) maxDeg = d;
         });
 
@@ -197,7 +210,7 @@ export default function GraphConcluida({
 
       case "nucleo": {
         const ccn = cyM.elements().closenessCentralityNormalized({
-          directed: false, // mais estável/interpretável em currículo
+          directed: false,
           harmonic: true,
         });
 
@@ -245,7 +258,6 @@ export default function GraphConcluida({
   useEffect(() => {
     const cy = cyInstance.current;
     if (!cy) return;
-
     if (typeof cy.destroyed === "function" && cy.destroyed()) return;
 
     const done = cy.nodes(".concluida").filter((n) => !n.data("isHeader"));
@@ -267,10 +279,13 @@ export default function GraphConcluida({
 
     async function inicializarGrafo() {
       try {
-        const elementosBrutos = curriculo[0].curriculo[0].matriz_curricular;
+        const elementosBrutos =
+          curriculo?.[0]?.curriculo?.[0]?.matriz_curricular || [];
+
         const elementos = elementosBrutos.filter(
           (disc) => disc.competencia !== "OPTATIVA",
         );
+
         const historicoPronto =
           (history?.codigos?.length ?? 0) > 0 ||
           (history?.nomes?.length ?? 0) > 0;
@@ -278,6 +293,7 @@ export default function GraphConcluida({
         const matrizIds = new Set(
           elementos.map((e) => String(e.codigo).trim()),
         );
+
         const prereqMap = new Map(
           elementos.map((e) => [
             String(e.codigo).trim(),
@@ -288,11 +304,10 @@ export default function GraphConcluida({
         const codigosHistorico = new Set(
           (history?.codigos || []).map((c) => c.trim().toUpperCase()),
         );
+
         const nomesHistorico = new Set(
           (history?.nomes || []).map((n) => normalizar(n)),
         );
-
-        console.log("curricuko", curriculo.disciplina);
 
         const curriculoComStatus = elementos.map((disc) => {
           const nomeMatrizNormalizado = normalizar(disc.nome);
@@ -304,8 +319,6 @@ export default function GraphConcluida({
 
           return { ...disc, concluida };
         });
-
-        console.log("mapeia hisoricoo", Array.from(codigosHistorico));
 
         const codigosConcluidos = new Set(
           curriculoComStatus
@@ -337,31 +350,30 @@ export default function GraphConcluida({
               oldLabel: id,
             },
             classes:
-              `${disc.concluida ? "concluida" : ""} ${disponivel ? "disponivel" : ""}`.trim(),
+              `${disc.concluida ? "concluida" : ""} ${disponivel ? "disponivel" : ""
+                }`.trim(),
           };
         });
-        const filterSubjectCompleted = curriculoComStatus.filter(
-          (f) => f.concluida,
-        );
-        console.log(filterSubjectCompleted);
-        setSubjectCompleted(filterSubjectCompleted);
 
-        const filterSubjectPendant = curriculoComStatus.filter(
-          (f) => f.concluida === false,
-        );
-        setPendant(filterSubjectPendant);
-        console.log("nodes mapeados com concluido", nodes);
+        setSubjectCompleted(curriculoComStatus.filter((d) => d.concluida));
+        setPendant(curriculoComStatus.filter((d) => d.concluida === false));
+
         const nodeIds = new Set(nodes.map((n) => n.data.id));
         const edges = [];
 
         elementos.forEach((element) => {
-          element.pre_requisitos.forEach((pr) => {
-            if (!nodeIds.has(pr)) return;
+          (element.pre_requisitos || []).forEach((pr) => {
+            const prereqId = String(pr).trim();
+            const disciplinaId = String(element.codigo).trim();
+
+            if (!nodeIds.has(prereqId) || !nodeIds.has(disciplinaId)) return;
+
+            // Direção visual: pré-requisito -> disciplina que depende dele.
             edges.push({
               data: {
-                id: `${element.codigo}->${pr}`,
-                source: element.codigo,
-                target: pr,
+                id: `${prereqId}->${disciplinaId}`,
+                source: prereqId,
+                target: disciplinaId,
               },
             });
           });
@@ -387,43 +399,27 @@ export default function GraphConcluida({
           container: cyRef.current,
           elements: [...headerNodes, ...nodes, ...edges],
           autoungrabify: true,
-          userPanningEnabled: false,
+          boxSelectionEnabled: false,
+          userPanningEnabled: true,
           userZoomingEnabled: true,
+          panningEnabled: true,
+          zoomingEnabled: true,
+          wheelSensitivity: 0.18,
+          minZoom: 0.35,
+          maxZoom: 1.8,
           style: [
             {
               selector: "node",
               style: {
                 label: "data(id)",
-                "background-color": "#2563eb", // azul melhor (blue-600)
+                "background-color": "#2563eb",
                 color: "#ffffff",
                 "text-valign": "center",
                 width: 200,
                 height: 50,
                 "font-size": "15px",
                 shape: "round-rectangle",
-
-                "background-image": (node) => {
-                  const rank = node.data("rank");
-                  const max = node.cy().data("maxRank") || 1;
-
-                  let safeRank = Number.isFinite(rank) ? rank : 0;
-                  let safeMax = Number.isFinite(max) && max > 0 ? max : 1;
-
-                  let ratio = safeRank / safeMax;
-                  ratio = Math.max(0, Math.min(1, ratio));
-
-                  const ratioMin = Math.max(ratio, 0.08);
-
-                  const hue = 220 - 220 * ratioMin;
-                  const color = `hsl(${hue}, 90%, 55%)`;
-
-                  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
-        <circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/>
-      </svg>`;
-
-                  return `data:image/svg+xml;base64,${btoa(svg)}`;
-                },
-
+                "background-image": criarIndicadorDeIntensidade,
                 "background-width": "14px",
                 "background-height": "14px",
                 "background-position-x": "180px",
@@ -436,34 +432,12 @@ export default function GraphConcluida({
               selector: "node.highlighted",
               style: {
                 width: 210,
-                "background-color": "#3b82f6", // azul mais claro no hover
+                "background-color": "#3b82f6",
                 opacity: 0.95,
                 "z-index": 999,
                 "text-wrap": "wrap",
                 "text-max-width": "150px",
-
-                "background-image": (node) => {
-                  const rank = node.data("rank");
-                  const max = node.cy().data("maxRank") || 1;
-
-                  let safeRank = Number.isFinite(rank) ? rank : 0;
-                  let safeMax = Number.isFinite(max) && max > 0 ? max : 1;
-
-                  let ratio = safeRank / safeMax;
-                  ratio = Math.max(0, Math.min(1, ratio));
-
-                  const ratioMin = Math.max(ratio, 0.08);
-
-                  const hue = 220 - 220 * ratioMin;
-                  const color = `hsl(${hue}, 90%, 55%)`;
-
-                  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
-        <circle cx="5" cy="5" r="4.5" fill="${color}" stroke="white" stroke-width="0.5"/>
-      </svg>`;
-
-                  return `data:image/svg+xml;base64,${btoa(svg)}`;
-                },
-
+                "background-image": criarIndicadorDeIntensidade,
                 "background-width": "14px",
                 "background-height": "14px",
                 "background-position-x": "180px",
@@ -473,9 +447,8 @@ export default function GraphConcluida({
             {
               selector: "node.concluida",
               style: {
-                "background-color": "#22c55e", // green-500
+                "background-color": "#22c55e",
                 color: "#052e16",
-                //   "font-weight": "700",
                 "border-width": 0,
               },
             },
@@ -494,7 +467,6 @@ export default function GraphConcluida({
                 "curve-style": "bezier",
                 "target-arrow-shape": "triangle",
                 width: 4,
-                "background-color": "#FF851B",
                 "line-color": "#FF855F",
                 "target-arrow-color": "#FF855F",
                 "z-index": "50",
@@ -514,7 +486,6 @@ export default function GraphConcluida({
                 "background-color": "rgba(255,255,255,0.92)",
                 color: "#0f172a",
                 "font-size": 14,
-                //      "font-weight": "700",
                 width: 200,
                 height: 32,
                 shape: "round-rectangle",
@@ -528,7 +499,7 @@ export default function GraphConcluida({
             },
             {
               selector: "node.periodHeader.faded",
-              style: { opacity: 1 }, // pra não sumir no hover/fade
+              style: { opacity: 1 },
             },
             {
               selector: "node.hiddenDone",
@@ -553,11 +524,13 @@ export default function GraphConcluida({
           ],
         });
 
-        cyInstance.current = cy; // Salva a instância para o efeito de filtros
-        cyMetricRef.current?.destroy();
+        cyInstance.current = cy;
+
+        cyMetricRef.current?.destroy?.();
         cyMetricRef.current = buildHeadlessCyFrom(cy, true);
 
         setGraphVersion((v) => v + 1);
+
         const contagemDeLinhas = {};
         const headerY = 0;
         const baseY = 45;
@@ -581,10 +554,34 @@ export default function GraphConcluida({
           },
         }).run();
 
+        cy.resize();
+
+        // Encaixa o grafo inteiro na área disponível, evitando sobrar espaço exagerado em um lado.
+        cy.fit(cy.elements(), 70);
+
+        // Aumenta um pouco o zoom depois do encaixe automático.
+        const zoomAjustado = Math.min(cy.zoom() * 0.88, cy.maxZoom());
+        cy.zoom({
+          level: zoomAjustado,
+          renderedPosition: {
+            x: cy.width() / 2,
+            y: cy.height() / 2,
+          },
+        });
+
+        // Sobe levemente o grafo para aproveitar melhor a área abaixo do menu.
+        cy.pan({
+          x: cy.pan().x,
+          y: cy.pan().y - 35,
+        });
+
+        cy.nodes().ungrabify();
+
         cy.on("mouseover", "node", (evt) => {
-          cy.container().style.cursor = "pointer";
           const node = evt.target;
           if (node.data("isHeader")) return;
+
+          cy.container().style.cursor = "pointer";
           node.data("oldLabel", node.data("id"));
           node.data("label", node.data("nome"));
           node.style("label", node.data("label"));
@@ -593,14 +590,16 @@ export default function GraphConcluida({
             .successors()
             .union(node.predecessors())
             .union(node);
+
           cy.elements().difference(connected).addClass("faded");
           connected.removeClass("faded").addClass("highlighted");
         });
 
         cy.on("mouseout", "node", (evt) => {
-          cy.container().style.cursor = "default";
           const node = evt.target;
           if (node.data("isHeader")) return;
+
+          cy.container().style.cursor = "default";
           node.data("label", node.data("oldLabel"));
           node.style("label", node.data("label"));
 
@@ -610,6 +609,7 @@ export default function GraphConcluida({
         cy.on("tap", "node", (evt) => {
           const node = evt.target;
           if (node.data("isHeader")) return;
+
           setDisciplinaSelecionada({
             codigo: node.data("id"),
             nome: node.data("nome"),
@@ -640,9 +640,83 @@ export default function GraphConcluida({
     };
   }, [curriculo, history]);
 
+  function zoomIn() {
+    const cy = cyInstance.current;
+    if (!cy) return;
+
+    cy.zoom({
+      level: Math.min(cy.zoom() * 1.2, cy.maxZoom()),
+      renderedPosition: {
+        x: cy.width() / 2,
+        y: cy.height() / 2,
+      },
+    });
+  }
+
+  function zoomOut() {
+    const cy = cyInstance.current;
+    if (!cy) return;
+
+    cy.zoom({
+      level: Math.max(cy.zoom() / 1.2, cy.minZoom()),
+      renderedPosition: {
+        x: cy.width() / 2,
+        y: cy.height() / 2,
+      },
+    });
+  }
+
+  function resetarVisualizacao() {
+    const cy = cyInstance.current;
+    if (!cy) return;
+
+    cy.resize();
+
+    cy.fit(cy.elements(), 70);
+
+    const zoomAjustado = Math.min(cy.zoom() * 1.18, cy.maxZoom());
+
+    cy.zoom({
+      level: zoomAjustado,
+      renderedPosition: {
+        x: cy.width() / 2,
+        y: cy.height() / 2,
+      },
+    });
+
+    cy.pan({
+      x: cy.pan().x,
+      y: cy.pan().y - 35,
+    });
+  }
+
+
   return (
     <div className="relative w-full h-full">
       <div id="cy" ref={cyRef} />
+
+      <div className="fixed right-4 top-24 z-90 flex flex-col gap-2 pointer-events-auto">
+        <button
+          className="bg-white text-black px-3 py-2 rounded shadow hover:bg-gray-200 font-bold"
+          onClick={zoomIn}
+        >
+          +
+        </button>
+
+        <button
+          className="bg-white text-black px-3 py-2 rounded shadow hover:bg-gray-200 font-bold"
+          onClick={zoomOut}
+        >
+          -
+        </button>
+
+        <button
+          className="bg-white text-black px-3 py-2 rounded shadow hover:bg-gray-200 text-xs font-bold"
+          onClick={resetarVisualizacao}
+        >
+          Centralizar
+        </button>
+      </div>
 
       {modalAberto && (
         <ModalSubjects
@@ -650,6 +724,7 @@ export default function GraphConcluida({
           onCloseModal={onCloseModal}
         />
       )}
+
       {openModalSugestoes && (
         <ModalSugestoes
           isOpen={openModalSugestoes}
@@ -658,11 +733,8 @@ export default function GraphConcluida({
         />
       )}
 
-      {/* DOCK ÚNICO: Painéis + Legenda (responsivo) */}
       <div className="fixed bottom-4 left-4 right-4 z-90 flex flex-col sm:flex-row gap-3 sm:items-end sm:justify-between pointer-events-none">
-        {/* Painel esquerdo (botões + listas) */}
         <div className="flex flex-col gap-2 max-w-[min(90vw,28rem)] pointer-events-auto">
-          {/* Concluídas */}
           <div className="flex flex-col gap-3">
             <button
               className="bg-slate-800 text-white px-4 py-2 rounded shadow-lg hover:bg-slate-900 transition-colors text-sm font-bold"
@@ -695,7 +767,6 @@ export default function GraphConcluida({
             )}
           </div>
 
-          {/* Pendentes */}
           <div className="flex flex-col">
             <button
               className="bg-red-600 text-white px-4 py-2 rounded shadow-lg hover:bg-red-700 transition-colors text-sm font-bold"
@@ -720,31 +791,20 @@ export default function GraphConcluida({
           </div>
         </div>
 
-        {/* Legenda (direita no desktop / abaixo no mobile) */}
-
-        <div
-          className={`pointer-events-auto transition-all duration-150 ease-in-out flex items-end justify-end flex-col-reverse `}
-        >
+        <div className="pointer-events-auto transition-all duration-150 ease-in-out flex items-end justify-end flex-col-reverse">
           <button
-            className="z-10 text-[#111827] bg-white rounded  p-1 mb-4 text-sm w-36 hover:bg-[#181f31] hover:text-white hover:border"
+            className="z-10 text-[#111827] bg-white rounded p-1 mb-4 text-sm w-36 hover:bg-[#181f31] hover:text-white hover:border"
             onClick={onCloseLegend}
           >
             {hideLegend ? "Mostrar Legenda" : "Esconder Legenda"}
           </button>
 
-          {/**aq */}
           <div
-            className={` transition-all duration-300 overflow-hidden
-    ${hideLegend ? "opacity-0 w-0" : "opacity-100 w-full"}
-    pointer-events-auto
-    self-end
-    sm:self-auto
-    flex flex-col gap-2`}
+            className={`transition-all duration-300 overflow-hidden
+              ${hideLegend ? "opacity-0 w-0" : "opacity-100 w-full"}
+              pointer-events-auto self-end sm:self-auto flex flex-col gap-2`}
           >
-            {/* Intensidade */}
-            <div
-              className={`} bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72`}
-            >
+            <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
               <div className="font-semibold mb-1">Legenda – Intensidade</div>
 
               <div className="text-[11px] text-gray-600 mb-2">
@@ -783,7 +843,6 @@ export default function GraphConcluida({
               </div>
             </div>
 
-            {/* Status */}
             <div className="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg text-xs text-gray-800 w-[min(18rem,calc(100vw-2rem))] sm:w-72">
               <div className="font-semibold mb-2">Legenda – Status</div>
 
@@ -820,7 +879,7 @@ export default function GraphConcluida({
                   <span
                     className="relative inline-block w-8 h-4 rounded-md border-2"
                     style={{ background: "#2563eb", borderColor: "#f59e0b" }}
-                  ></span>
+                  />
                   <span className="text-[11px] text-gray-700">
                     Recomendada (maior rank disponível)
                   </span>

@@ -24,8 +24,8 @@ export default function Principal() {
   }
 
   return (
-    <div className=" w-full bg-[#020305]">
-      <div className="container">
+    <div className="w-screen h-screen bg-[#020305] overflow-hidden">
+      <div className="app-container">
         <header className="header-container">
           <Link to="/">
             <div className="logo">AjudaEu</div>
@@ -57,7 +57,7 @@ export default function Principal() {
             Teste de usabilidade
           </a>
         </header>
-        <main className=" h-[calc(100vh-96px)]">
+        <main className="graph-main">
           {/* DEIXA ISSO AQUI  ddps muda  ----  pt-24 evita que o header cubra o conteúdo inicial */}
           {curriculo ? (
             <GraphConcluida
