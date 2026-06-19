@@ -27,7 +27,7 @@ export default function Principal() {
     <div className="w-screen h-screen bg-[#020305] overflow-hidden">
       <div className="app-container">
         <header className="header-container">
-          <Link to="/">
+          <Link to="/TFG">
             <div className="logo">AjudaEu</div>
           </Link>
 
