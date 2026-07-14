@@ -1,4 +1,5 @@
-Copyright © 2026 Francisco Alves Batista, Carlos Alberto Gonzaga Silva.
+Copyright © 2026 Francisco Alves Batista,
+Bruno Stanlley de Jesus e Carlos Alberto Gonzaga Silva.
 
 Todos os direitos reservados.
 
